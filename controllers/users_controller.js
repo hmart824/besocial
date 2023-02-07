@@ -1,7 +1,8 @@
 const User = require('../models/user')
 module.exports.profile = (req , res)=>{
     return res.render('profile' , {
-        title: 'user_profile'
+        title: 'user_profile',
+        user: res.locals.user
     })
 }
 
@@ -12,11 +13,17 @@ module.exports.posts = (req , res)=>{
 }
 
 module.exports.signIn = (req , res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile')
+    }
     return res.render('sign_in' , {
         title: 'BeSocial | sign in'
     })
 }
 module.exports.signUp = (req , res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile')
+    }
     return res.render('sign_up' , {
         title: 'BeSocial | sign up'
     })

@@ -32,9 +32,27 @@ passport.deserializeUser((id , done)=>{
             console.log('error in finding user --> passport/deserialize');
             return done(err);
         }
+        console.log(user);
         return done(null , user);
     });
 });
+
+
+//check if the user is authenticated or not
+passport.checkAuthentication = (req , res , next)=>{
+    //if the user is signed in then call the next function
+    if(req.isAuthenticated()){
+        return next();
+    }
+    return res.redirect('/users/sign-in');
+};
+
+passport.setAuthenticatedUser = (req , res , next)=>{
+    if(req.isAuthenticated()){
+        res.locals.user = req.user;
+    }
+    next();
+}
 
 
 module.exports = passport;
