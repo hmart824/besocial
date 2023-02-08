@@ -2,7 +2,6 @@ const User = require('../models/user')
 module.exports.profile = (req , res)=>{
     return res.render('profile' , {
         title: 'user_profile',
-        user: res.locals.user
     })
 }
 
@@ -56,4 +55,13 @@ module.exports.create = (req , res)=>{
 }
 module.exports.createSession = (req , res)=>{
     return res.redirect('/');
+}
+module.exports.destroySession = (req , res)=>{
+    req.logout((err)=>{
+        if(err){
+            console.log('error in sign out');
+            return;
+        }
+        return res.redirect('/');
+    });
 }
