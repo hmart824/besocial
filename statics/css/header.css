@@ -1,0 +1,17 @@
+header nav {
+  border: 2px solid red;
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: space-between; }
+
+header .logo {
+  font-size: 2rem;
+  color: #ed1414; }
+
+header span {
+  font-size: 1.5rem;
+  color: #61b932; }
+
+header ul {
+  list-style: none; }

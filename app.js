@@ -1,6 +1,7 @@
 const express = require('express');
 const port = 8000;
 const app = express();
+const path = require('path');
 const cookieparser = require('cookie-parser');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -8,11 +9,21 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
+const sassMiddleware = require('node-sass-middleware');
+
+app.use(sassMiddleware({
+    src: './statics/scss',
+    dest: './statics/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix: '/css'
+}));
 
 app.use(express.urlencoded());
 app.use(cookieparser());
-app.use(express.static('./statics'));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(expressLayouts);
+
 
 //extracts styles and scripts form sub pages into layout
 app.set('layout extractStyles' , true);
