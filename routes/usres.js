@@ -4,9 +4,9 @@ const usersController = require('../controllers/users_controller');
 const passport = require('passport');
 
 router.get('/profile', passport.checkAuthentication , usersController.profile);
-router.get('/posts' , usersController.posts);
 router.get('/sign-in' , usersController.signIn);
 router.get('/sign-up' , usersController.signUp);
+router.get('/sign-out' , usersController.destroySession);
 
 router.post('/create' , usersController.create);
 router.post('/create-session' ,passport.authenticate(
@@ -14,7 +14,6 @@ router.post('/create-session' ,passport.authenticate(
     { failureRedirect: '/users/sign-in' }
 ), usersController.createSession);
 
-router.get('/sign-out' , usersController.destroySession);
 
 
 

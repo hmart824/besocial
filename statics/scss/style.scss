@@ -1,6 +1,48 @@
 body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    // text-align: center; 
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+
+header{
+    nav{
+        height: 3.4rem;
+        display: flex;
+        padding: 0 2rem;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #00425A;
+
+        .logo{
+            font-size: 2rem;
+            color: #FC7300;
+        }
+            span{
+                font-size: 1.5rem;
+                color: #1F8A70;
+            }
+        ul{
+            list-style: none;
+            display: flex;
+
+                li{
+                    margin-left: 1.3rem;
+                        a{
+                            color:#FC7300;
+                            text-decoration: none;
+                            font-size: .9rem;
+                        }
+                }
+        }
+    }   
+       
+}
+footer{
+    height: 3.4rem;
+    color: #FC7300;
+    display: flex;
+    padding: 0 2rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #00425A;
+}
 }

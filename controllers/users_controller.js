@@ -1,15 +1,12 @@
-const User = require('../models/user')
+const User = require('../models/user');
 module.exports.profile = (req , res)=>{
     return res.render('profile' , {
         title: 'user_profile',
     })
 }
 
-module.exports.posts = (req , res)=>{
-    return res.render('post' , {
-        title: 'user_post'
-    })
-}
+
+
 
 module.exports.signIn = (req , res)=>{
     if(req.isAuthenticated()){
@@ -44,7 +41,6 @@ module.exports.create = (req , res)=>{
                     console.log('error in finding the user in sign up');
                     return 
                 }
-                console.log("<--->" , user);
                 return res.redirect('/users/sign-in')
             })
         }
