@@ -1,20 +1,17 @@
 <link rel="stylesheet" href="/css/home.css">
 <div class="container">
     <h1>BeSocial/<%=title %></h1>
+    <%if(locals.user){%>
     <form action="/posts/create" method="post">
         <textarea name="content" cols="30" rows="4" placeholder="Type here ...." required></textarea>
         <input type="submit" value="Post">
     </form>
+    <%}%>
 
     <div id="post-list-container">
         <ul>
             <% for(post of posts){%>
-                <p>
-                    <li><%= post.content %></li>
-                    <small>
-                        <%= post.user.name%>
-                    </small>
-                </p>
+               <%- include('_post')%>
             <%}%>
         </ul>
     </div>

@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const Comment = require('../models/comment');
 
 module.exports.posts = (req , res)=>{
     return res.render('post' , {
@@ -22,4 +23,21 @@ module.exports.create = (req , res)=>{
     else{
         return res.redirect('back');
     }
+}
+
+module.exports.destroy = (req , res)=>{
+    Post.findByIdAndDelete(req.query.id, (err)=>{
+        if(err){
+            console.log('error in finding post to destroy');
+            return;
+        }
+        Comment.deleteMany({post: req.query.id},(err)=>{
+            if(err){
+                console.log('error in deletting comments of post');
+                return;
+             }
+                return res.redirect('back');
+            })
+        
+    })
 }
