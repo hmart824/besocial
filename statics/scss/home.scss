@@ -1,4 +1,22 @@
 .container{
-    height: 100vh;
-    text-align: center;
+    height: calc(100vh - 6.8rem);
+    display: flex;
+    // text-align: center;
+        #feed-posts{
+            width: 65%;
+            padding: 10px;
+            overflow-y: scroll;
+            border-right: 2px solid black;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
+        #user-friends{
+            width: 30%;
+            padding: 10px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
 }

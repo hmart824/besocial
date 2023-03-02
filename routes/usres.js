@@ -13,6 +13,7 @@ router.post('/create-session' ,passport.authenticate(
     'local',
     { failureRedirect: '/users/sign-in' }
 ), usersController.createSession);
+router.post('/update', passport.checkAuthentication , usersController.update);
 
 
 

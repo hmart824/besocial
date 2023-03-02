@@ -1,18 +1,29 @@
 <link rel="stylesheet" href="/css/home.css">
 <div class="container">
-    <h1>BeSocial/<%=title %></h1>
-    <%if(locals.user){%>
-    <form action="/posts/create" method="post">
-        <textarea name="content" cols="30" rows="4" placeholder="Type here ...." required></textarea>
-        <input type="submit" value="Post">
-    </form>
-    <%}%>
+    <section id="feed-posts">
+        <h1>BeSocial/<%=title %></h1>
+        <%if(locals.user){%>
+        <form action="/posts/create" method="post">
+            <textarea name="content" cols="30" rows="4" placeholder="Type here ...." required></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <%}%>
 
-    <div id="post-list-container">
-        <ul>
-            <% for(post of posts){%>
-               <%- include('_post')%>
-            <%}%>
-        </ul>
-    </div>
+        <div id="post-list-container">
+            <ul>
+                <% for(post of posts){%>
+                <%- include('_post')%>
+                <%}%>
+            </ul>
+        </div>
+    </section>
+
+    <section id="user-friends">
+        <%if(locals.user){%>
+            <h1>Friends</h1>
+            <% for(u of allUser){%>
+                <p><a href="users/profile/?id=<%= u.id%>"><%= u.name%></a></p>
+                <%}%>
+                <%}%>
+    </section>
 </div>

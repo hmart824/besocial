@@ -1,3 +1,16 @@
 .container {
-  height: 100vh;
-  text-align: center; }
+  height: calc(100vh - 6.8rem);
+  display: flex; }
+  .container #feed-posts {
+    width: 65%;
+    padding: 10px;
+    overflow-y: scroll;
+    border-right: 2px solid black; }
+    .container #feed-posts::-webkit-scrollbar {
+      display: none; }
+  .container #user-friends {
+    width: 30%;
+    padding: 10px;
+    overflow-y: scroll; }
+    .container #user-friends::-webkit-scrollbar {
+      display: none; }
