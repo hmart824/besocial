@@ -32,16 +32,21 @@ module.exports.create = async (req , res)=>{
 
 module.exports.destroy = async(req , res)=>{
    try{
-     await Post.findByIdAndDelete(req.params.id);
-        await Comment.deleteMany({post: req.params.id});
-        if(req.xhr){
-          return res.status(200).json({
-            data:{
-              post_id: req.params.id
-            },
-            message: 'Post deleted successfully!'
-          })
-        }
+     let post = await Post.findByIdAndDelete(req.params.id);
+     if(post.user == req.user.id){
+
+       await Comment.deleteMany({post: req.params.id});
+       if(req.xhr){
+         return res.status(200).json({
+           data:{
+             post_id: req.params.id
+           },
+           message: 'Post deleted successfully!'
+         })
+       }
+     }else{
+      return res.redirect('back');
+     }
         req.flash('error','Post deleted!');
             return res.redirect('back');
    }catch(err){
