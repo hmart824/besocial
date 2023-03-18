@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="/css/profile.css">
 
+<img src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
+
 <section class="profile-container">
     <h1>BeSocial/users/<%=title %></h1>
-    <% if(locals.user.id == profile_user.id){%>
-        <form action="/users/update/?id=<%=profile_user.id%>" method="post">
+    <% if(locals.user.id == profile_user._id){%>
+        <form action="/users/update/?id=<%=profile_user.id%>" method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Enter your name" value="<%=profile_user.name%>" required>
             <input type="email" name="email" placeholder="Enter your email" value="<%=profile_user.email%>" required>
+            <input type="file" name="avatar" placeholder="Profile Picture">
             <input type="submit" value="update">
         </form>
      <%}else{%>
         <p><%=profile_user.name %></p>
         <p><%=profile_user.email %></p>
     <%}%>
-</section>
+</section>z

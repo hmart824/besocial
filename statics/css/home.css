@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 6.8rem);
+  height: 100%;
   display: flex; }
   .container #feed-posts {
     width: 65%;

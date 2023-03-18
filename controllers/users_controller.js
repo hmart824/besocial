@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.profile = async (req , res)=>{
    try{
@@ -15,8 +17,25 @@ module.exports.profile = async (req , res)=>{
 module.exports.update = async (req , res)=>{
     try{
         if(req.user.id === req.query.id){
-            await User.findByIdAndUpdate(req.query.id , req.body);
-            return res.redirect('back');
+            // await User.findByIdAndUpdate(req.query.id , req.body);
+            // return res.redirect('back');
+            let user = await User.findById(req.query.id);
+            User.uploadedAvatar(req , res , (err)=>{
+                if(err){console.log('*****Multer Error' , err)};
+                user.name = req.body.name
+                user.email = req.body.email
+
+                if(req.file){
+                    if(user.avatar && fs.existsSync(path.join(__dirname , '..' , user.avatar))){
+                        fs.unlinkSync(path.join(__dirname , '..' , user.avatar));
+                    }
+
+                    //saving the path of the uploaded file in avatar field of the user
+                    user.avatar = User.avatarPath + '/' +req.file.filename
+                }
+                user.save();
+                return res.redirect('back')
+            });
         }
         else{
             return res.status(401).send('unauthorized');
@@ -66,14 +85,16 @@ module.exports.create = async (req , res)=>{
     }
 }
 module.exports.createSession = (req , res)=>{
+    req.flash('success' , 'Logged in successfully.');
     return res.redirect('/');
 }
 module.exports.destroySession = (req , res)=>{
     req.logout((err)=>{
         if(err){
-            console.log('error in sign out');
+            console.log(err);
             return;
         }
+        req.flash('success' , 'Logged out successfully.');
         return res.redirect('/');
-    });
+    })
 }
