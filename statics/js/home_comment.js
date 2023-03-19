@@ -32,15 +32,15 @@
     }
     const newCommentDom = (comment)=>{
         return $(`<li id="comment-${comment._id}" class="comment-li">
-                    <p>
-                        <small>
-                            <button><a class="delete-comment-button" href="/comments/destroy/${comment._id}">Delete comment</a></button>
-                        </small>
+                    <div class="comment">
+                            <a class="delete-comment-button" href="/comments/destroy/${comment._id}"><i class="bi bi-x-circle"></i></a>
                             ${comment.content }
-                        <small>
-                            ${comment.user.name}
-                        </small>
-                    </p>
+                        <p>
+                            <small>
+                                ${comment.user.name}
+                            </small>
+                        </p>
+                    </div>
                 </li>`)
     }
 
@@ -67,7 +67,7 @@
             })
         })
     }
-    const addingDeleteToPosts = ()=>{
+    const addingDeleteToComments = ()=>{
         let lists = $('.comment-li');
         Array.from(lists).forEach((li)=>{
             // console.log(li.childNode());
@@ -81,7 +81,7 @@
         })
     }
 
-    addingDeleteToPosts();
+    addingDeleteToComments();
 
     
 

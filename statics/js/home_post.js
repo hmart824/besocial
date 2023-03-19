@@ -35,17 +35,23 @@ import {createComment , destroyComment} from "./home_comment.js";
     //metod to create a post in DOM
     const newPostDom = (post)=>{
         return $(`<li class="post-li" id="post-${post._id}">
-                    <p>
-                        <button><a class="delete-post-button" href="/posts/destroy/${post._id}">Delete</a></button>
-                        
-                        ${post.content}
-                        <br/>
-                        <small>
-                            ${post.user.name}
-                        </small>
-                        <div id="post-comments">
+                    <div class="post">
+                        <header>
+                            <div class="profile">
+                                <div class="img">
+                                    <img src="${post.user.avatar ? post.user.avatar : '/img/default_avatar.png'}" alt="${post.user.name}">
+                                </div>
+                                ${post.user.name}
+                            </div>
+                                <a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="bi bi-x-circle"></i></a>
+                        </header>
+                        <p>
+                            ${post.content}
+                        </p>
+                    </div>
+                        <div class="post-comments">
                             <form action="/comments/create" method="post" id="new-comment-form-${post._id}">
-                                <input type="text" name="content" placeholder="comment..." required>
+                                <input type="text" name="content" placeholder="comment..." class="inp" required>
                                 <input type="hidden" name="post" value="${post._id}">
                                 <input type="submit" value="comment">
                             </form>
@@ -54,7 +60,6 @@ import {createComment , destroyComment} from "./home_comment.js";
                             </ul>
                             </div>
                         </div>
-                    </p>
                 </li>`)
     }
     

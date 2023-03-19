@@ -8,9 +8,15 @@
     border-right: 2px solid black; }
     .container #feed-posts::-webkit-scrollbar {
       display: none; }
+    .container #feed-posts #post-list-container {
+      text-align: center; }
+      .container #feed-posts #post-list-container #post-ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
   .container #user-friends {
     width: 30%;
-    padding: 10px;
-    overflow-y: scroll; }
+    padding: 10px; }
     .container #user-friends::-webkit-scrollbar {
       display: none; }

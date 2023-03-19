@@ -25,7 +25,7 @@ body {
           text-decoration: none;
           font-size: .9rem; }
   body .layout-main {
-    height: calc(100vh - 6.8rem); }
+    min-height: calc(100vh - 6.8rem); }
   body footer {
     height: 3.4rem;
     color: #FC7300;
