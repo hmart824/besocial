@@ -6,6 +6,9 @@
         <%}%>
         <%= comment.content %>
         <p>
+            <small class="comment-date">
+                <%= comment.updatedAt %>
+            </small>
             <small>
                 <%= comment.user.name%>
             </small>

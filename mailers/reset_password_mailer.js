@@ -1,12 +1,12 @@
 const nodemailer = require('../config/nodemailer');
 
-exports.newComment = (comment)=>{
-    let htmlContent = nodemailer.renderTemplate(  {comment: comment} , '/comments/new_comment.ejs')
+exports.resetPassword = (token)=>{
+    let htmlContent = nodemailer.renderTemplate(  {token: token} , '/reset_password/reset_password_mail.ejs')
 
     nodemailer.transporter.sendMail({
         from: 'besocial824@gmail.com',
-        to: comment.user.email,
-        subject: 'new comment published',
+        to: token.user.email,
+        subject: 'Reset Password Link',
         html: htmlContent
     } , (err , info)=>{
         if(err){
@@ -14,9 +14,7 @@ exports.newComment = (comment)=>{
             return;
         }
 
-        // console.log('Message sent' , info);
+        console.log('Message sent' , info);
         return;
     })
-    
-
 }

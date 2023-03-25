@@ -34,6 +34,17 @@ import {createComment , destroyComment} from "./home_comment.js";
 
     //metod to create a post in DOM
     const newPostDom = (post)=>{
+        let date = new Date(post.updatedAt);
+        let opts = {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric' ,
+                hour: 'numeric',
+                minute: 'numeric'
+        }
+        let modifiedDate = date.toLocaleString('default' , opts);
+
+      
         return $(`<li class="post-li" id="post-${post._id}">
                     <div class="post">
                         <header>
@@ -41,7 +52,10 @@ import {createComment , destroyComment} from "./home_comment.js";
                                 <div class="img">
                                     <img src="${post.user.avatar ? post.user.avatar : '/img/default_avatar.png'}" alt="${post.user.name}">
                                 </div>
-                                ${post.user.name}
+                                <div class='profile-data'>
+                                    <span>${post.user.name}</span>
+                                    <span class='date'>${modifiedDate}</span>
+                                </div>
                             </div>
                                 <a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="bi bi-x-circle"></i></a>
                         </header>

@@ -16,3 +16,5 @@
         background-color: #787777;
         color: white;
         border-radius: 0.2rem; }
+    .comment-li .comment .delete-comment-button i {
+      color: white; }

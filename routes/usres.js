@@ -20,6 +20,7 @@ router.get('/auth/google/callback' , passport.authenticate(
     'google' ,
      {failureRedirect: '/users/sign-in'})
      , usersController.createSession);
+router.use('/reset-password' , require('./reset_password'));
 
 
 

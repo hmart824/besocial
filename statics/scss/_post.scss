@@ -38,6 +38,13 @@
                         border-radius: 50%;
                     }
                 }
+                .profile-data span{
+                    display: block;
+                }
+                .profile-data span:last-child{
+                    font-size: .8rem ;
+                }
+                
             }
         }
         p{

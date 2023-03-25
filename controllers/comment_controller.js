@@ -1,6 +1,8 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 const commentMailer = require('../mailers/comments_mailer');
+const queue = require('../config/kue');
+const commentEmailWorker = require('../workers/comment_email_worker');
 
 module.exports.create = async (req , res)=>{
     try{
@@ -14,7 +16,15 @@ module.exports.create = async (req , res)=>{
                 post.comments.push(comment);
                 post.save();
                 comment = await comment.populate('user' , ['name' , 'email']);
-                commentMailer.newComment(comment)
+                // commentMailer.newComment(comment)
+                let job = queue.create('emails' , comment).save((err)=>{
+                    if(err){
+                        console.log('error in sendng the job to queue' , err);
+                        return;
+                    }else{
+                        console.log('job enqueued' , job.id);
+                    }
+                })
                 if(req.xhr){
                     
                     return res.status(200).json({
@@ -39,9 +49,8 @@ module.exports.create = async (req , res)=>{
 
  module.exports.destroy = async (req , res)=>{
     try{
-        let comment =  await Comment.findById(req.params.id);
+        let comment =  await Comment.findByIdAndDelete(req.params.id);
         let postId = comment.post;
-        comment.deleteOne();
         console.log(postId)
         await Post.findByIdAndUpdate(postId , {$pull:{comments: req.params.id}});
         if (req.xhr){

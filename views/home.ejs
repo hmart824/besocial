@@ -27,5 +27,35 @@
                 <%}%>
     </section>
 </div>
+<script>
+    let postDate = $('.date');
+    postDate.each(function(){
+        let date = new Date(this.innerText);
+        let opts = {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric'
+        }
+        let modifiedDate = date.toLocaleString('default' , opts);
+        console.log(modifiedDate);
+        this.innerHTML = modifiedDate
+    })
+    let commentDate = $('.comment-date');
+    commentDate.each(function(){
+        let date = new Date(this.innerText);
+        let opts = {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric'
+        }
+        let modifiedDate = date.toLocaleString('default' , opts);
+        console.log(modifiedDate);
+        this.innerHTML = modifiedDate
+    })
+</script>
 <script type="module" src="/js/home_post.js"></script>
 <script type="module" src="/js/home_comment.js"></script>

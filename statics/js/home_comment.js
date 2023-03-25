@@ -31,11 +31,23 @@
 
     }
     const newCommentDom = (comment)=>{
+        let date = new Date(comment.updatedAt);
+        let opts = {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric' ,
+                hour: 'numeric',
+                minute: 'numeric'
+        }
+        let modifiedDate = date.toLocaleString('default' , opts);
         return $(`<li id="comment-${comment._id}" class="comment-li">
                     <div class="comment">
                             <a class="delete-comment-button" href="/comments/destroy/${comment._id}"><i class="bi bi-x-circle"></i></a>
                             ${comment.content }
                         <p>
+                            <small>
+                                ${modifiedDate}
+                            </small>
                             <small>
                                 ${comment.user.name}
                             </small>
@@ -45,7 +57,6 @@
     }
 
     export const destroyComment = (query)=>{
-        console.log(query)
         $(query).click((e)=>{
             e.preventDefault();
             $.ajax({
@@ -70,12 +81,6 @@
     const addingDeleteToComments = ()=>{
         let lists = $('.comment-li');
         Array.from(lists).forEach((li)=>{
-            // console.log(li.childNode());
-            // let deletePostButton = $(' .delete-post-button', li);
-            // destroyPost(deletePostButton);
-            // let postId = li.id.split('-')[1];
-            // createComment(postId);
-            console.log(li);
             let deleteCommentButton = $(' .delete-comment-button' , li);
             destroyComment(deleteCommentButton)
         })

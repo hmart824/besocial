@@ -7,6 +7,9 @@ module.exports.home = async (req , res)=>{
     .populate('user')
     .populate({
         path: 'comments',
+        options: {
+            sort: '-createdAt'
+        },
         populate:{
             path: 'user'
         }
