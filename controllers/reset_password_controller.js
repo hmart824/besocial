@@ -19,6 +19,9 @@ module.exports.getEmail = async(req , res)=>{
     try{
         let user = await User.findOne({email: req.body.email});
         let userToken = await Resetpassword.findOne({user: user.id});
+        let cuurTime = new Date().getTime();
+        let lastUpdatedTime = new Date(userToken.updatedAt).getTime();
+        let hourDiff = (cuurTime - lastUpdatedTime) / 3600000;
         console.log('________>>',userToken);
         if(user && !userToken){
             let token = await Resetpassword.create({
@@ -36,18 +39,24 @@ module.exports.getEmail = async(req , res)=>{
                     }
                 })
                 return res.redirect('back');            
-        }else{
-            await Resetpassword.findByIdAndUpdate(userToken.id , {is_valid: true});
+        }else if(hourDiff > 24){
+            await userToken.update({is_valid: true});
             let token = await userToken.populate('user' , ['name','email']);
-                let job = queue.create('resetPasswordEmails' , token).save((err)=>{
-                    if(err){
-                        console.log('error in sendng the job to queue in getemail' , err);
-                        return;
-                    }else{
-                        console.log('job enqueued' , job.id);
-                    }
-                })
+            let job = queue.create('resetPasswordEmails' , token).save((err)=>{
+                if(err){
+                    console.log('error in sendng the job to queue in getemail' , err);
+                    return;
+                }else{
+                    console.log('job enqueued' , job.id);
+                }
+            })
+            setTimeout(async ()=>{
+                await userToken.update({is_valid: false});
+            }, 10*60*1000);
                 return res.redirect('back');    
+        }else{
+            console.log('You cannot change the password!');
+            return res.redirect('back');
         }
     }catch(err){
         console.log('error in reseting the password' , err);
@@ -59,12 +68,17 @@ module.exports.getEmail = async(req , res)=>{
 
 module.exports.update = async (req , res)=>{
     try{
-        if(req.params.accessToken && req.body.new_password === req.body.confirm_new_password){
-            let userToken = await Resetpassword.findOneAndUpdate({accessToken: req.params.accessToken} , {is_valid: false});
+        let userToken = await Resetpassword.findOne({accessToken: req.params.accessToken});
+        if(userToken && userToken.is_valid && req.body.new_password === req.body.confirm_new_password){
             console.log(userToken);
             await User.findByIdAndUpdate(userToken.user , {password: req.body.new_password});
+            await userToken.update({
+                                    is_valid: false , 
+                                    accessToken: crypto.randomBytes(20).toString('hex')
+                                });
 
         }else{
+            console.log('The session has expired!!!!')
             return res.redirect('back');
         }
         return res.redirect('/users/sign-in');
