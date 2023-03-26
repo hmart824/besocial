@@ -1,4 +1,4 @@
-
+    import { toggleLike } from "./toggle_like.js";
     export const createComment = (postId)=>{
         // console.log(postId)
         let newCommentForm = $(`#new-comment-form-${postId}`);
@@ -12,7 +12,8 @@
                     // console.log(data);
                     let newComment = newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
-                    destroyComment($(' .delete-comment-button', newComment))
+                    destroyComment($(' .delete-comment-button', newComment));
+                    toggleLike($(' .comment-toggle-like-button' , newComment));
                     new Noty({
                         theme: 'relax',
                         text: 'Commented',
@@ -48,9 +49,12 @@
                             <small>
                                 ${modifiedDate}
                             </small>
-                            <small>
+                            <small style="margin-right: .2rem;">
                                 ${comment.user.name}
                             </small>
+                            <a class="comment-toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment" style="color: white; text-decoration: none ;">
+                                0 <i class="bi bi-hand-thumbs-up-fill"></i>
+                            </a>
                         </p>
                     </div>
                 </li>`)
@@ -82,7 +86,8 @@
         let lists = $('.comment-li');
         Array.from(lists).forEach((li)=>{
             let deleteCommentButton = $(' .delete-comment-button' , li);
-            destroyComment(deleteCommentButton)
+            destroyComment(deleteCommentButton);
+            toggleLike($(' .comment-toggle-like-button' , li));
         })
     }
 

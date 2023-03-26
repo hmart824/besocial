@@ -39,8 +39,7 @@
             minute: 'numeric'
         }
         let modifiedDate = date.toLocaleString('default' , opts);
-        console.log(modifiedDate);
-        this.innerHTML = modifiedDate
+        this.innerHTML = modifiedDate;
     })
     let commentDate = $('.comment-date');
     commentDate.each(function(){
@@ -53,9 +52,9 @@
             minute: 'numeric'
         }
         let modifiedDate = date.toLocaleString('default' , opts);
-        console.log(modifiedDate);
-        this.innerHTML = modifiedDate
+        this.innerHTML = modifiedDate;
     })
 </script>
 <script type="module" src="/js/home_post.js"></script>
 <script type="module" src="/js/home_comment.js"></script>
+<script type="module" src="/js/toggle_like.js"></script>

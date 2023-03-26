@@ -9,9 +9,16 @@
             <small class="comment-date">
                 <%= comment.updatedAt %>
             </small>
-            <small>
+            <small style="margin-right: .2rem;">
                 <%= comment.user.name%>
             </small>
+            <% if (locals.user){ %>
+                    <a class="comment-toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="color: white; text-decoration: none ;">
+                            <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
+                    </a>
+            <% }else{ %>
+                <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
+            <% } %>
         </p>
     </div>
 </li>

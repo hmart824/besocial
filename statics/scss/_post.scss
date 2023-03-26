@@ -3,19 +3,23 @@
     border-radius: .4rem;
     margin-bottom: .5rem;
     background-color: lightgrey;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     .post{
         border: 2px solid green;
-        margin: 1rem 0 0.3rem 0;
+        margin-bottom: 0.3rem;
         padding: 0 0.5rem 0.3rem 0.5rem;
         width: 79%;
         height: fit-content;
         min-height: 8.5rem;
-        display: inline-block;
         position: relative;
         text-align: initial;
         border-radius: 0.4rem;
         background-color: white;
-        header{
+        .head{
             border-bottom: 2px solid black;
             height: fit-content;
             display: flex;
@@ -49,13 +53,21 @@
         }
         p{
             margin: 0.3rem 0 0 0;
-            min-height: 2.5rem;
+            min-height: 6.2rem;
+        }
+        .foot{
+            border-top: 2px solid black;
+            padding: .3rem 0.2rem;
+            small{
+                font-size: 1.3rem;
+                text-decoration: none;
+                color: black;
+            }
         }
     }
     .post-comments{
         width: 79%;
-        display: inline-block;
-        margin-bottom: 1rem;
+        display: none;
         form{
             margin: .3rem 0;
             .inp{

@@ -2,7 +2,7 @@
 <li class="post-li" id="post-<%= post._id%>">
     
     <div class="post">
-        <header>
+        <div class="head">
             <div class="profile">
                 <div class="img">
                     <img src="<%= post.user.avatar ? post.user.avatar : '/img/default_avatar.png'%>" alt="">
@@ -15,11 +15,23 @@
             <%if(locals.user && locals.user.id === post.user.id){%>
                 <a class="delete-post-button" href="/posts/destroy/<%=post._id%>"><i class="bi bi-x-circle" style="color: black"></i></a>
             <%}%>
-        </header>
+            </div>
         <p>
             <%= post.content %>
 
         </p>
+        <div class="foot">
+            <small>
+                <% if (locals.user){ %>
+                        <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post" style="color: blue; text-decoration: none ;">
+                                <%= post.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
+                        </a>
+                <% }else{ %>
+                    <%= post.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
+                <% } %>
+            </small>
+            <button class='comment-btn'>Comments</button>
+        </div>
     </div>
     <div class="post-comments">
         <%if(locals.user){%>
@@ -38,4 +50,3 @@
         </div>
     </div>
 </li>
-

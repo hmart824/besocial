@@ -13,7 +13,8 @@ module.exports.home = async (req , res)=>{
         populate:{
             path: 'user'
         }
-    });
+    })
+    .populate('likes');
     
     let allUser = await User.find({});
            

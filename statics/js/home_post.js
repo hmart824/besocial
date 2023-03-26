@@ -1,4 +1,5 @@
 import {createComment , destroyComment} from "./home_comment.js";
+import { toggleLike } from "./toggle_like.js";
 {
     //method to submit the form data using AJAX
     const createPost = ()=>{
@@ -13,8 +14,16 @@ import {createComment , destroyComment} from "./home_comment.js";
                     let newPost = newPostDom(data.data.post);
                     // console.log(data.data.post._id)
                     $('#post-list-container>ul').prepend(newPost);
-                    createComment(data.data.post._id)
-                    destroyPost($(' .delete-post-button', newPost))
+                    createComment(data.data.post._id);
+                    toggleLike($(' .toggle-like-button' , newPost));
+                    destroyPost($(' .delete-post-button', newPost));
+
+                    //adding toggle comment button
+                    $(' .comment-btn' , newPost).click(()=>{
+                        console.log('clicked')
+                        console.log($(' .post-comment' , newPost));
+                        $(' .post-comments' , newPost).toggle();
+                    });
                     new Noty({
                         theme: 'relax',
                         text: 'Post published',
@@ -47,7 +56,7 @@ import {createComment , destroyComment} from "./home_comment.js";
       
         return $(`<li class="post-li" id="post-${post._id}">
                     <div class="post">
-                        <header>
+                        <div class="head">
                             <div class="profile">
                                 <div class="img">
                                     <img src="${post.user.avatar ? post.user.avatar : '/img/default_avatar.png'}" alt="${post.user.name}">
@@ -58,10 +67,18 @@ import {createComment , destroyComment} from "./home_comment.js";
                                 </div>
                             </div>
                                 <a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="bi bi-x-circle"></i></a>
-                        </header>
+                        </div>
                         <p>
                             ${post.content}
                         </p>
+                        <div class="foot">
+                            <small>
+                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                                    0 <i class="bi bi-hand-thumbs-up-fill"></i>
+                                </a>
+                            </small>
+                            <button class='comment-btn'>Comments</button>
+                        </div>
                     </div>
                         <div class="post-comments">
                             <form action="/comments/create" method="post" id="new-comment-form-${post._id}">
@@ -107,10 +124,16 @@ import {createComment , destroyComment} from "./home_comment.js";
         let lists = $('.post-li');
         Array.from(lists).forEach((li)=>{
             // console.log(li.childNode());
+            $(' .comment-btn' , li).click(()=>{
+                console.log('clicked')
+                console.log($(' .post-comment' , li));
+                $(' .post-comments' , li).toggle();
+            });
             let deletePostButton = $(' .delete-post-button', li);
             destroyPost(deletePostButton);
             let postId = li.id.split('-')[1];
             createComment(postId);
+            toggleLike($(' .toggle-like-button' , li));
             // let deleteCommentButton = $(' .delete-comment-button' , li);
             // destroyComment(deleteCommentButton)
         })
