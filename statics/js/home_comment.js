@@ -52,7 +52,7 @@
                             <small style="margin-right: .2rem;">
                                 ${comment.user.name}
                             </small>
-                            <a class="comment-toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment" style="color: white; text-decoration: none ;">
+                            <a class="comment-toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment" style="color: black ; text-decoration: none ;"">
                                 0 <i class="bi bi-hand-thumbs-up-fill"></i>
                             </a>
                         </p>

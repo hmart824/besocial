@@ -17,11 +17,16 @@ module.exports.home = async (req , res)=>{
     .populate('likes');
     
     let allUser = await User.find({});
+    let user;
+    if(req.user){
+        user = await User.findById(req.user._id).populate('friends');
+    }
            
         return res.render('home' , {
             title: "home",
             posts: posts,
-            allUser: allUser
+            allUser: allUser,
+            user: user
         })
     }catch(err){
      console.log(err);

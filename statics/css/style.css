@@ -5,9 +5,9 @@ body {
   body header nav {
     height: 3.4rem;
     display: flex;
+    position: relative;
     padding: 0 2rem;
     align-items: center;
-    justify-content: space-between;
     background-color: #00425A; }
     body header nav .logo {
       font-size: 2rem;
@@ -17,13 +17,29 @@ body {
       color: #1F8A70; }
     body header nav ul {
       list-style: none;
-      display: flex; }
+      height: 100%;
+      width: fit-content;
+      display: flex;
+      align-items: center; }
       body header nav ul li {
         margin-left: 1.3rem; }
         body header nav ul li a {
           color: #FC7300;
           text-decoration: none;
           font-size: .9rem; }
+    body header nav .social {
+      position: absolute;
+      height: 100%;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      right: 0;
+      top: 0; }
+      body header nav .social a {
+        margin-right: 1.3rem;
+        color: #FC7300;
+        text-decoration: none;
+        font-size: .9rem; }
   body .layout-main {
     min-height: calc(100vh - 6.8rem); }
   body footer {

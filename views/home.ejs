@@ -20,11 +20,19 @@
 
     <section id="user-friends">
         <%if(locals.user){%>
-            <h1>Friends</h1>
-            <% for(u of allUser){%>
-                <p><a href="users/profile/?id=<%= u.id%>"><%= u.name%></a></p>
+            <div class="friends">
+                <h1>Friends</h1>
+                <% for(friend of user.friends){%>
+                    <p><a href="users/profile/?id=<%= friend.id%>"><%= friend.name%></a></p>
                 <%}%>
+            </div>
+            <div class="users" style="margin-top: 5rem;">
+                <h1>Users</h1>
+                <% for(u of allUser){%>
+                    <p><a href="users/profile/?id=<%= u.id%>"><%= u.name%>
                 <%}%>
+            </div>
+        <%}%>
     </section>
 </div>
 <script>
@@ -54,6 +62,8 @@
         let modifiedDate = date.toLocaleString('default' , opts);
         this.innerHTML = modifiedDate;
     })
+
+    
 </script>
 <script type="module" src="/js/home_post.js"></script>
 <script type="module" src="/js/home_comment.js"></script>

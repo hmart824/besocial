@@ -7,9 +7,10 @@ body{
         nav{
             height: 3.4rem;
             display: flex;
+            position: relative;
             padding: 0 2rem;
             align-items: center;
-            justify-content: space-between;
+            // justify-content: space-between;
             background-color: #00425A;
 
             .logo{
@@ -22,7 +23,10 @@ body{
                 }
             ul{
                 list-style: none;
+                height: 100%;
+                width: fit-content;
                 display: flex;
+                align-items: center;
 
                     li{
                         margin-left: 1.3rem;
@@ -32,6 +36,22 @@ body{
                                 font-size: .9rem;
                             }
                     }
+            }
+            .social{
+                position: absolute;
+                height: 100%;
+                width: fit-content;
+                display: flex;
+                align-items: center;
+                right: 0;
+                top: 0;
+                a{
+                    margin-right: 1.3rem;
+                    color:#FC7300;
+                    text-decoration: none;
+                    font-size: .9rem;
+                }
+
             }
         }   
        

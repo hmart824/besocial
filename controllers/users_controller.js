@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
+const Friendship = require('../models/friendship');
 
 module.exports.profile = async (req , res)=>{
    try{
@@ -99,4 +100,49 @@ module.exports.destroySession = (req , res)=>{
     })
 }
 
+
+module.exports.toggleFriendship = async (req , res)=>{
+    try{
+        let user = await User.findById(req.user._id);
+        if(!user.friends.includes(req.params.id)){
+            let friendData = await User.findById(req.params.id);
+            console.log('all good')
+            await Friendship.create({
+                                from: user.id,
+                                to: req.params.id
+                            });
+                
+                user.friends.push(req.params.id);
+                user.save();
+                friendData.friends.push(user.id);
+                friendData.save();
+                return res.status(200).json({
+                    message: 'added to friends',
+                    data:{
+                        added: true
+                    }
+                })
+            }else{
+                let relation = await Friendship.findOneAndDelete({ $or: [{from: req.user._id , to: req.params.id} , {from: req.params.id , to: req.user._id}]});
+                if(relation){
+                 let user = await User.findById(req.user._id);
+                 let friendData = await User.findById(req.params.id);
+                 user.friends.pull(req.params.id);
+                 user.save();
+                 friendData.friends.pull(user.id);
+                 friendData.save();
+                 return res.status(200).json({
+                     message: 'added to friends',
+                     data:{
+                         added: false
+                     }
+                 })
+                }
+                 return res.redirect('back');
+            }
+    }catch(err){
+        console.log('error in making friendship' , err);
+        return;
+    }
+};
 

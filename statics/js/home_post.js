@@ -73,7 +73,7 @@ import { toggleLike } from "./toggle_like.js";
                         </p>
                         <div class="foot">
                             <small>
-                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post" style="color: black ; text-decoration: none ;">
                                     0 <i class="bi bi-hand-thumbs-up-fill"></i>
                                 </a>
                             </small>

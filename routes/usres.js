@@ -21,6 +21,7 @@ router.get('/auth/google/callback' , passport.authenticate(
      {failureRedirect: '/users/sign-in'})
      , usersController.createSession);
 router.use('/reset-password' , require('./reset_password'));
+router.get('/toggle-friendship/:id', passport.checkAuthentication , usersController.toggleFriendship);
 
 
 

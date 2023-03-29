@@ -1,18 +1,40 @@
 <link rel="stylesheet" href="/css/profile.css">
 
-<img src="<%=profile_user.avatar%>" alt="<%=profile_user.name%>" width="100">
 
 <section class="profile-container">
     <h1>BeSocial/users/<%=title %></h1>
+    <%if(profile_user.avatar){%>
+        <img src="<%=profile_user.avatar%>" alt="<%=profile_user.name%>" width="100">
+    <%}%>
     <% if(locals.user.id == profile_user._id){%>
         <form action="/users/update/?id=<%=profile_user.id%>" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="Enter your name" value="<%=profile_user.name%>" required>
-            <input type="email" name="email" placeholder="Enter your email" value="<%=profile_user.email%>" required>
-            <input type="file" name="avatar" placeholder="Profile Picture">
-            <input type="submit" value="update">
+            <input type="text" class="inp" name="name" placeholder="Enter your name" value="<%=profile_user.name%>" required readonly>
+            <input type="email" class="inp" name="email" placeholder="Enter your email" value="<%=profile_user.email%>" required readonly>
+            <input type="file" class="inp" name="avatar" title="Upload a Profile Picture" required readonly>
+            <input type="submit" value="update" id="update">
         </form>
+        <button id="edit" style="margin-top: .5rem;">Edit</button>
      <%}else{%>
         <p><%=profile_user.name %></p>
         <p><%=profile_user.email %></p>
+        <%if(profile_user.friends.includes(user.id)){%>
+            <button id="btn"><a href="/users/toggle-friendship/<%=profile_user._id%>">Remove Friend</a></button>
+        <%}else{%>
+            <button id="btn"><a href="/users/toggle-friendship/<%=profile_user._id%>">Add To Friend</a></button>
+        <%}%>
     <%}%>
 </section>
+<script>
+    let inputs = $('.inp');
+    $('#update').hide();
+    $('#edit').click(()=>{
+        inputs.each(function(){
+            $(this).removeAttr('readonly');
+            $(this).css('border','revert');
+            $('#update').css('border','revert');
+            $('#update').show();
+        })
+    })
+
+</script>
+<script src="/js/toggle_friendship.js"></script>

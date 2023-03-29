@@ -13,7 +13,7 @@
                 <%= comment.user.name%>
             </small>
             <% if (locals.user){ %>
-                    <a class="comment-toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="color: white; text-decoration: none ;">
+                    <a class="comment-toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="color: black ; text-decoration: none ;"">
                             <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
                     </a>
             <% }else{ %>
