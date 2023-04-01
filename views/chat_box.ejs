@@ -1,0 +1,55 @@
+<% if (locals.user){ %>
+	<link rel="stylesheet" href="/css/chat_box.css">
+	<div id="user-chat-box">
+		<ul id="chat-messages-list">
+			<%for(chat of chats){%>
+				<%if(chat.sender.email == locals.user.email){%>
+					<li class="self-message">
+						<span>
+							<%= chat.message%>
+						</span>
+						<div class="tag">
+							<small><%=chat.sender.name%></small>
+							<small class="chat-date"><%=chat.updatedAt%></small>
+						</div>
+						
+					</li>
+				<%}else{%>
+					<li class="other-message">
+						<span>
+							<%= chat.message%>
+						</span>
+						<div class="tag">
+							<small><%=chat.sender.name%></small>
+							<small class="chat-date"><%=chat.updatedAt%></small>
+						</div>
+					</li>
+				<%}%>
+			<%}%>
+			
+		</ul>
+		<form id="chat-message-input-container" method="post" action="/chat-room/chat">
+			<input type="text"  id="chat-message-input" name="message"  placeholder="Type message here" required>
+			<input type="submit" id="send-message" value="Send"></input>
+		</form>
+
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
+	<script src="/js/chat_engine.js"></script>
+	<script>
+		new ChatEngine('user-chat-box', '<%= locals.user.email %>' , '<%= locals.user.name%>');
+		let chatDate = $('.chat-date');
+		chatDate.each(function(){
+			let date = new Date(this.innerText);
+			let opts = {
+				month: 'short',
+				day: 'numeric',
+				year: 'numeric',
+				hour: 'numeric',
+				minute: 'numeric'
+			}
+			let modifiedDate = date.toLocaleString('default' , opts);
+			this.innerHTML = modifiedDate;
+		})
+	</script>
+<% } %>

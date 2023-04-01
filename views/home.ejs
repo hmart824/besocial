@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/_post.css">
+<link rel="stylesheet" href="/css/_comment.css">
+<link rel="stylesheet" href="/css/_chat_box.css">
 <div class="container">
     <section id="feed-posts">
         <h1>BeSocial/<%=title %></h1>
@@ -29,11 +32,14 @@
             <div class="users" style="margin-top: 5rem;">
                 <h1>Users</h1>
                 <% for(u of allUser){%>
-                    <p><a href="users/profile/?id=<%= u.id%>"><%= u.name%>
+                    <p><a href="users/profile/?id=<%= u.id%>"><%= u.name%></a></p>
                 <%}%>
             </div>
         <%}%>
     </section>
+    <div class="menu-bar">
+        <i class="bi bi-three-dots-vertical"></i>
+    </div>
 </div>
 <script>
     let postDate = $('.date');
@@ -62,7 +68,9 @@
         let modifiedDate = date.toLocaleString('default' , opts);
         this.innerHTML = modifiedDate;
     })
-
+    $('.menu-bar').click(()=>{
+        $('#user-friends').toggle();
+    })
     
 </script>
 <script type="module" src="/js/home_post.js"></script>

@@ -51,9 +51,10 @@
       border-top: 2px solid black;
       padding: .3rem 0.2rem; }
       .post-li .post .foot small {
-        font-size: 1.3rem;
+        font-size: 1rem;
         text-decoration: none;
-        color: black; }
+        color: black;
+        cursor: pointer; }
   .post-li .post-comments {
     width: 79%;
     display: none; }

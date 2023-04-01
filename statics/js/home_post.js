@@ -77,7 +77,7 @@ import { toggleLike } from "./toggle_like.js";
                                     0 <i class="bi bi-hand-thumbs-up-fill"></i>
                                 </a>
                             </small>
-                            <button class='comment-btn'>Comments</button>
+                            <small class='comment-btn'><i class="bi bi-chat-fill" style="margin-right: .1rem;"></i>Comments</small>
                         </div>
                     </div>
                         <div class="post-comments">
