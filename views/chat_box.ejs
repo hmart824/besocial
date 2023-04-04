@@ -35,7 +35,7 @@
 
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
-	<script src="/js/chat_engine.js"></script>
+	<script src="<%= staticPath('js/chat_engine.js')%>"></script>
 	<script>
 		new ChatEngine('user-chat-box', '<%= locals.user.email %>' , '<%= locals.user.name%>');
 		let chatDate = $('.chat-date');

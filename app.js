@@ -1,6 +1,9 @@
 const express = require('express');
+const env = require('./config/environment');
+const logger = require('morgan');
 const port = 8000;
 const app = express();
+require('./config/view-helpers')(app);
 const path = require('path');
 const cookieparser = require('cookie-parser');
 const expressLayouts = require('express-ejs-layouts');
@@ -21,17 +24,21 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
 
-app.use(sassMiddleware({
-    src: './statics/scss',
-    dest: './statics/css',
-    debug: true,
-    outputStyle: 'extended',
-    prefix: '/css'
-}));
+if(env.name == 'development'){
+    app.use(sassMiddleware({
+        src: path.join(__dirname , env.static_path , 'scss'),
+        dest: path.join(__dirname , env.static_path , 'css'),
+        debug: true,
+        outputStyle: 'extended',
+        prefix: '/css'
+    }));
+}
 
 app.use(express.urlencoded());
 app.use(cookieparser());
-app.use(express.static(path.join(__dirname, 'statics')));
+app.use(express.static(env.static_path));
+
+app.use(logger(env.morgan.mode , env.morgan.options))
 
 //* make the upload path available to the browser
 app.use('/uploads',express.static(__dirname + '/uploads'));
@@ -50,7 +57,7 @@ app.set('views' , './views');
 app.use(session({
     name: 'besocial',
     //TODO change the secret before deployment in production mode
-    secret: "blahhhh",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

@@ -1,0 +1,67 @@
+.container {
+  min-height: calc(100vh - 6.8rem);
+  height: 100%;
+  display: flex; }
+  .container #feed-posts {
+    width: 65%;
+    padding: 10px;
+    overflow-y: scroll;
+    border-right: 2px solid black; }
+    .container #feed-posts::-webkit-scrollbar {
+      display: none; }
+    .container #feed-posts #new-post-form {
+      text-align: center; }
+      .container #feed-posts #new-post-form input {
+        display: block;
+        margin: auto; }
+    .container #feed-posts #post-list-container {
+      text-align: center; }
+      .container #feed-posts #post-list-container #post-ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+  .container #user-friends {
+    width: 30%;
+    padding: 10px; }
+    .container #user-friends::-webkit-scrollbar {
+      display: none; }
+    .container #user-friends .friends, .container #user-friends .users {
+      height: fit-content;
+      width: 100%; }
+    .container #user-friends a {
+      text-decoration: none; }
+  .container .menu-bar {
+    position: absolute;
+    top: 4.3rem;
+    right: 0.6rem;
+    font-size: 1.3rem;
+    display: none; }
+  @media (max-width: 976px) {
+    .container #feed-posts {
+      width: 80%; }
+    .container #user-friends {
+      width: 20%; } }
+  @media (max-width: 794px) {
+    .container #feed-posts {
+      width: 100%;
+      border: none; }
+      .container #feed-posts #post-ul {
+        padding: 0; }
+    .container #user-friends {
+      position: absolute;
+      top: 6.4rem;
+      right: 0;
+      min-width: 6rem;
+      display: none;
+      background-color: #bdbdbd;
+      border-radius: 0.5rem;
+      box-shadow: -17px -14px 11px -10px rgba(0, 0, 0, 0.75); }
+    .container .menu-bar {
+      display: block; } }
+  @media (max-width: 532px) {
+    .container .post-li {
+      width: 75%; } }
+  @media (max-width: 383px) {
+    .container .post-li {
+      width: 96%; } }

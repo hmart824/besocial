@@ -1,0 +1,20 @@
+.comment-li {
+  margin-bottom: 0.3rem;
+  text-align: initial;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.4rem;
+  background-color: white;
+  color: black; }
+  .comment-li .comment {
+    position: relative;
+    min-height: 1.8rem; }
+    .comment-li .comment p {
+      margin: 0;
+      text-align: right; }
+      .comment-li .comment p small {
+        padding: 0 0.3rem;
+        background-color: #787777;
+        color: white;
+        border-radius: 0.2rem; }
+    .comment-li .comment .delete-comment-button i {
+      color: black; }
