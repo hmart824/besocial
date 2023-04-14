@@ -13,16 +13,16 @@ gulp.task('css' , (done)=>{
     .pipe(cssnano())
     .pipe(gulp.dest('./statics.css'));
 
-    gulp.src('./statics/**/*.css')
-    .pipe(rev())
-    .pipe(gulp.dest('./public/statics'))
-    .pipe(rev.manifest({
-        cwd: 'public',
-        merge: true
-    }))
-    .pipe(gulp.dest('./public/statics'));
+    return gulp.src('./statics/**/*.css')
+            .pipe(rev())
+            .pipe(gulp.dest('./public/statics'))
+            .pipe(rev.manifest({
+                cwd: 'public',
+                merge: true
+            }))
+            .pipe(gulp.dest('./public/statics'));
 
-    done();
+            done();
 });
 
 
@@ -43,15 +43,15 @@ gulp.task('js' , (done)=>{
 
 gulp.task('images' , (done)=>{
     console.log('minifying images....');
-    gulp.src('./statics/**/*.(+png|jpg|gif|sgv|jpeg)')
+    gulp.src('./statics/images/*.+(png|jpg|gif|sgv|jpeg)')
     .pipe(imagemin())
     .pipe(rev())
-    .pipe(gulp.dest('./public/statics'))
+    .pipe(gulp.dest('./public/statics/images'))
     .pipe(rev.manifest({
         cwd: 'public',
         merge: true
     }))
-    .pipe(gulp.dest('./public/statics'))
+    .pipe(gulp.dest('./public/statics/images'))
     done();
 });
 
@@ -61,7 +61,7 @@ gulp.task('clean:statics' , (done)=>{
     done();
 });
 
-gulp.task('build' , gulp.series('clean:statics' , 'css' , 'js' , 'images') , (done)=>{
+gulp.task('build' , gulp.series('clean:statics' , 'images' , 'css' , 'js') , (done)=>{
     console.log('building statics');
     done();
 });

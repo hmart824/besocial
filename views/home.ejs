@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="<%= staticPath('css/home.css')%>">
 <link rel="stylesheet" href="<%= staticPath('css/_post.css')%>">
-<link rel="stylesheet" href="<%= staticPath('css/_comment.css')%>"
-<link rel="stylesheet" href="<%= staticPath('css/_chat_box.css')%>">
+<link rel="stylesheet" href="<%= staticPath('css/_comment.css')%>">
 <div class="container">
     <section id="feed-posts">
         <h1>BeSocial/<%=title %></h1>
@@ -41,6 +40,15 @@
         <i class="bi bi-three-dots-vertical"></i>
     </div>
 </div>
+<script src="<%= staticPath('js/home_comment.js')%>"></script>
+<script src="<%= staticPath('js/home_post.js')%>"></script>
+<script src="<%= staticPath('js/toggle_like.js')%>"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
 <script>
     let postDate = $('.date');
     postDate.each(function(){
@@ -73,6 +81,4 @@
     })
     
 </script>
-<script type="module" src="<%= staticPath('js/home_post.js')%>"></script>
-<script type="module" src="<%= staticPath('js/home_comment.js')%>"></script>
-<script type="module" src="<%= staticPath('js/toggle_like.js')%>"></script>
+

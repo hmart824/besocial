@@ -1,5 +1,4 @@
-import {createComment , destroyComment} from "./home_comment.js";
-import { toggleLike } from "./toggle_like.js";
+
 {
     //method to submit the form data using AJAX
     const createPost = ()=>{
@@ -14,8 +13,8 @@ import { toggleLike } from "./toggle_like.js";
                     let newPost = newPostDom(data.data.post);
                     // console.log(data.data.post._id)
                     $('#post-list-container>ul').prepend(newPost);
-                    createComment(data.data.post._id);
-                    toggleLike($(' .toggle-like-button' , newPost));
+                    new ToggleLike($(' .toggle-like-button' , newPost));
+                    new PostComments(data.data.post._id);
                     destroyPost($(' .delete-post-button', newPost));
 
                     //adding toggle comment button
@@ -132,8 +131,7 @@ import { toggleLike } from "./toggle_like.js";
             let deletePostButton = $(' .delete-post-button', li);
             destroyPost(deletePostButton);
             let postId = li.id.split('-')[1];
-            createComment(postId);
-            toggleLike($(' .toggle-like-button' , li));
+            new PostComments(postId);
             // let deleteCommentButton = $(' .delete-comment-button' , li);
             // destroyComment(deleteCommentButton)
         })

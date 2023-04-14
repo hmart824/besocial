@@ -5,7 +5,7 @@
         <div class="head">
             <div class="profile">
                 <div class="img">
-                    <img src="<%= post.user.avatar ? post.user.avatar : '/img/default_avatar.png'%>" alt="">
+                    <img src="<%= post.user.avatar ? post.user.avatar : staticPath('images/default_avatar.png')%>" alt="">
                 </div>
                 <div class="profile-data">
                     <span><%= post.user.name%></span>
