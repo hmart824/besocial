@@ -1,4 +1,3 @@
-
 {
     //method to submit the form data using AJAX
     const createPost = ()=>{
@@ -10,8 +9,8 @@
                 url: newPostForm.prop('action'),
                 data: newPostForm.serialize(),
                 success: (data)=>{
-                    let newPost = newPostDom(data.data.post);
-                    // console.log(data.data.post._id)
+                    let newPost = newPostDom(data.data.post , data.data.path);
+                    // console.log(data.data.path)
                     $('#post-list-container>ul').prepend(newPost);
                     new ToggleLike($(' .toggle-like-button' , newPost));
                     new PostComments(data.data.post._id);
@@ -41,7 +40,7 @@
     }
 
     //metod to create a post in DOM
-    const newPostDom = (post)=>{
+    const newPostDom = (post , path)=>{
         let date = new Date(post.updatedAt);
         let opts = {
                 month: 'short',
@@ -58,7 +57,7 @@
                         <div class="head">
                             <div class="profile">
                                 <div class="img">
-                                    <img src="${post.user.avatar ? post.user.avatar : '/img/default_avatar.png'}" alt="${post.user.name}">
+                                    <img src="${post.user.avatar ? post.user.avatar : path}" alt="${post.user.name}">
                                 </div>
                                 <div class='profile-data'>
                                     <span>${post.user.name}</span>
@@ -132,10 +131,9 @@
             destroyPost(deletePostButton);
             let postId = li.id.split('-')[1];
             new PostComments(postId);
-            // let deleteCommentButton = $(' .delete-comment-button' , li);
-            // destroyComment(deleteCommentButton)
         })
     }
+
 
     addingDeleteToPosts();
     createPost();

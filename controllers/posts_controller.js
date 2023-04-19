@@ -22,7 +22,8 @@ module.exports.create = async (req , res)=>{
       console.log(post)
       return res.status(200).json({
         data: {
-          post: post
+          post: post,
+          path: req.app.locals.staticPath('images/default_avatar.png')
         },
         message:'post created'
       })

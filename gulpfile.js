@@ -1,67 +1,68 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const cssnano = require('gulp-cssnano');
-const imagemin = require('gulp-imagemin');
+const gulp = require('gulp')
+const cssnano = require('gulp-cssnano')
 const rev = require('gulp-rev');
 const uglify = require('gulp-uglify-es').default;
+const imagemin = require('gulp-imagemin');
 const del = require('del');
+const sass = require('gulp-sass') (require('node-sass'));
 
-gulp.task('css' , (done)=>{
-    console.log('minifying css..............');
-    gulp.src('./statics/scss/**/*.scss')
+gulp.task( 'css' , function(done){
+    console.log('Minifying css');
+    gulp.src('./statics/sass/**/*.scss')
     .pipe(sass())
     .pipe(cssnano())
-    .pipe(gulp.dest('./statics.css'));
+    .pipe(gulp.dest('./statics/css'))
 
-    return gulp.src('./statics/**/*.css')
-            .pipe(rev())
-            .pipe(gulp.dest('./public/statics'))
-            .pipe(rev.manifest({
-                cwd: 'public',
-                merge: true
-            }))
-            .pipe(gulp.dest('./public/statics'));
+    console.log('minified css');
+    gulp.src( './statics/**/*.css' )
+    .pipe(rev())
+    .pipe(gulp.dest('./public/statics'))
+    .pipe(rev.manifest( 'public/statics/rev-manifest.json' , {
+        base : './public/statics',
+        merge : true
+    }))
+    .pipe(gulp.dest('./public/statics'));
+    done();
 
-            done();
-});
+} ) 
 
 
-gulp.task('js' , (done)=>{
-    console.log('minfying js.......');
+gulp.task( 'js' ,function(done){
+    console.log('minifying js.........');
     gulp.src('./statics/**/*.js')
     .pipe(uglify())
     .pipe(rev())
     .pipe(gulp.dest('./public/statics'))
-    .pipe(rev.manifest({
-        cwd: 'public',
-        merge: true
+    .pipe(rev.manifest( 'public/statics/rev-manifest.json' , {
+        base : './public/statics',
+        merge : true
     }))
     .pipe(gulp.dest('./public/statics'));
     done();
-});
+}) 
 
-
-gulp.task('images' , (done)=>{
-    console.log('minifying images....');
-    gulp.src('./statics/images/*.+(png|jpg|gif|sgv|jpeg)')
+gulp.task( 'images' , function(done){
+    console.log('minifying images......');
+    gulp.src('./statics/**/*.+(png|jpg|gif|svg|jpeg)')
     .pipe(imagemin())
     .pipe(rev())
-    .pipe(gulp.dest('./public/statics/images'))
-    .pipe(rev.manifest({
-        cwd: 'public',
-        merge: true
+    .pipe(gulp.dest('./public/statics'))
+    .pipe(rev.manifest( 'public/statics/rev-manifest.json' , {
+        base : './public/statics',
+        merge : true
     }))
-    .pipe(gulp.dest('./public/statics/images'))
+    .pipe(gulp.dest('./public/statics'));
     done();
-});
+} )
 
-//*empty the public/statics directory
-gulp.task('clean:statics' , (done)=>{
-    del.sync('./public/statics');
+
+gulp.task('clean:statics' , function(done){
+    del.sync(['./public/statics'] , {force:true});
     done();
-});
+} )
 
-gulp.task('build' , gulp.series('clean:statics' , 'images' , 'css' , 'js') , (done)=>{
+
+gulp.task( 'build' , gulp.series( 'clean:statics' , 'css' , 'js' , 'images' ) , function(done){
     console.log('building statics');
     done();
-});
+}  );

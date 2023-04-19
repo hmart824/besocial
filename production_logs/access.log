@@ -932,3 +932,300 @@
 ::1 - - [14/Apr/2023:08:12:53 +0000] "GET / HTTP/1.1" 500 148 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [14/Apr/2023:08:17:53 +0000] "GET / HTTP/1.1" 200 6462 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [14/Apr/2023:08:17:54 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:38:58 +0000] "GET / HTTP/1.1" 200 4931 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:39:01 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:59:16 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:01:44 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:02:03 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:02:04 +0000] "GET / HTTP/1.1" 200 6489 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:02:11 +0000] "POST /comments/create HTTP/1.1" 200 343 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:02:37 +0000] "POST /posts/create HTTP/1.1" 200 267 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:02:37 +0000] "GET /img/default_avatar.png HTTP/1.1" 404 161 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:06:05 +0000] "GET / HTTP/1.1" 200 9311 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:06:09 +0000] "GET /posts/destroy/643eb10d74dff8f24292e351 HTTP/1.1" 302 88 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:06:10 +0000] "GET / HTTP/1.1" 200 7390 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:06:45 +0000] "POST /posts/create HTTP/1.1" 302 88 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:06:45 +0000] "GET / HTTP/1.1" 200 9311 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:09:00 +0000] "GET / HTTP/1.1" 200 9311 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:09:06 +0000] "GET /posts/destroy/643eb205b4b25e793a0cf7b2 HTTP/1.1" 200 86 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET / [32m200[0m 308.128 ms - 7283[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.670 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 5.647 ms - -[0m
+[0mGET /users/sign-in [32m200[0m 41.103 ms - 2565[0m
+[0mPOST /users/create-session [36m302[0m 36.000 ms - 46[0m
+[0mGET / [32m200[0m 83.796 ms - 10494[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.792 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 4.903 ms - -[0m
+[0mGET /posts/destroy/6438f95cb61670867a6e2ac1 [32m200[0m 235.660 ms - 86[0m
+[0mGET / [32m200[0m 248.730 ms - 6081[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [32m200[0m 65.492 ms - 88747[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [32m200[0m 76.302 ms - 81344[0m
+[0mGET /favicon.ico [33m404[0m 4.701 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 11.671 ms - 2565[0m
+[0mGET /users/auth/google [36m302[0m 5.800 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk7owmiJf4NVQGQoCe0UIL5huDrZWUIA_nbGsyAAgjLkhHBLvKJ_KU2pgb2T2hOmHA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 3658.729 ms - 46[0m
+[0mGET / [32m200[0m 263.859 ms - 8389[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 4.389 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 4.490 ms - -[0m
+[0mPOST /posts/create [32m200[0m 163.838 ms - 275[0m
+[0mGET / [32m200[0m 172.324 ms - 10307[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.313 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.240 ms - -[0m
+[0mGET / [32m200[0m 64.177 ms - 10321[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.680 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 4.281 ms - -[0m
+[0mGET /config/view-helpers [33m404[0m 11.608 ms - 158[0m
+[0mGET / [36m304[0m 2124.899 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.720 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.153 ms - -[0m
+[0mPOST /posts/create [32m200[0m 96.898 ms - 281[0m
+[0mGET / [32m200[0m 264.409 ms - 12245[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 5.339 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.000 ms - -[0m
+[0mPOST /posts/create [32m200[0m 97.638 ms - 273[0m
+[0mGET / [32m200[0m 536.068 ms - 14161[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.135 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 2.567 ms - -[0m
+[0mGET /posts/destroy/643ebcfc0269392d4dbf5c08 [36m302[0m 102.102 ms - 88[0m
+[0mGET / [32m200[0m 58.916 ms - 12245[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.110 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.298 ms - -[0m
+[0mGET / [36m304[0m 219.837 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 4.884 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 5.273 ms - -[0m
+[0mGET / [36m304[0m 245.611 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 9.125 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 7.979 ms - -[0m
+[0mGET /posts/destroy/643ebc45bbd41088c2db5118 [32m200[0m 46.767 ms - 86[0m
+[0mGET /posts/destroy/643eb481a58e02584dab4c88 [32m200[0m 28.614 ms - 86[0m
+[0mGET / [32m200[0m 54.920 ms - 12243[0m
+[0mPOST /posts/create [0m-[0m - ms - -[0m
+[0mPOST /posts/create [0m-[0m - ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.189 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.488 ms - -[0m
+[0mGET /posts/destroy/643ec1fd1c5a4a1f131cb6ad [32m200[0m 24.999 ms - 86[0m
+[0mGET / [32m200[0m 193.882 ms - 12235[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 4.803 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.758 ms - -[0m
+[0mGET /posts/destroy/643ec21d1c5a4a1f131cb6bf [32m200[0m 80.664 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 70.013 ms - 270[0m
+[0mGET /posts/destroy/643ec312594a2d0184be3b41 [32m200[0m 37.157 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 37.003 ms - 270[0m
+[0mGET / [32m200[0m 143.994 ms - 12236[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 10.419 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 14.241 ms - -[0m
+[0mGET /posts/destroy/643ec31e594a2d0184be3b4d [32m200[0m 53.887 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 67.848 ms - 271[0m
+[0mPOST /posts/create [32m200[0m 126.929 ms - 281[0m
+[0mGET /posts/destroy/643ec349dbc3391d61a70578 [32m200[0m 106.869 ms - 86[0m
+[0mGET /posts/destroy/643ec343dbc3391d61a70572 [32m200[0m 39.375 ms - 86[0m
+[0mGET /posts/destroy/643ec1f31c5a4a1f131cb6a6 [32m200[0m 26.776 ms - 86[0m
+[0mGET / [32m200[0m 133.864 ms - 8403[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 17.798 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 28.334 ms - -[0m
+[0mGET / [32m200[0m 139.900 ms - 10318[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.271 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.361 ms - -[0m
+[0mGET /posts/destroy/643ec395d1062ef42724b33f [32m200[0m 43.815 ms - 86[0m
+[0mGET / [32m200[0m 4194.912 ms - 7273[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 69.966 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 76.486 ms - -[0m
+[0mGET /favicon.ico [33m404[0m 1015.658 ms - 150[0m
+[0mGET / [32m200[0m 1144.536 ms - 7273[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 7.858 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.417 ms - -[0m
+[0mGET /favicon.ico [33m404[0m 6.525 ms - 150[0m
+[0mGET /users/sign-in [36m304[0m 183.857 ms - -[0m
+[0mGET /users/auth/google [36m302[0m 9.685 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk7QS_tS1d5ggHOHBIaAh5FQFQeBPGQ3bGodNogAJBdMY6YRkNKsZZ0IEeuA0bVHYA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 5885.129 ms - 46[0m
+[0mGET / [32m200[0m 562.126 ms - 10320[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 11.544 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 12.477 ms - -[0m
+[0mGET / [36m304[0m 553.990 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.994 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 8.280 ms - -[0m
+[0mPOST /posts/create [32m200[0m 660.306 ms - 272[0m
+[0mGET / [32m200[0m 197.414 ms - 12235[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.627 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 9.230 ms - -[0m
+[0mGET /posts/destroy/643f8369e6fce5d28874bebe [32m200[0m 242.727 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 65.523 ms - 541[0m
+[0mGET / [32m200[0m 232.672 ms - 12233[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 8.231 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.519 ms - -[0m
+[0mPOST /posts/create [32m200[0m 68.522 ms - 541[0m
+[0mGET / [32m200[0m 478.746 ms - 14146[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 8.794 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 9.796 ms - -[0m
+[0mGET /posts/destroy/643f84a9bdf2f7c1aeb5c417 [32m200[0m 52.738 ms - 86[0m
+[0mGET /posts/destroy/643f842ba1062b0d7a371159 [32m200[0m 30.358 ms - 86[0m
+[0mGET /posts/destroy/643ec3e0b336449b9884eb98 [32m200[0m 29.309 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 79.699 ms - 310[0m
+[0mGET / [32m200[0m 134.096 ms - 10319[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.215 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 2.967 ms - -[0m
+[0mPOST /posts/create [32m200[0m 71.419 ms - 308[0m
+[0mGET / [32m200[0m 143.117 ms - 12234[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 4.914 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.510 ms - -[0m
+[0mPOST /posts/create [32m200[0m 77.547 ms - 548[0m
+[0mGET / [32m200[0m 138.004 ms - 14154[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 8.318 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.201 ms - -[0m
+[0mPOST /posts/create [32m200[0m 69.823 ms - 284[0m
+[0mGET / [32m200[0m 132.915 ms - 16081[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 5.626 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 9.157 ms - -[0m
+[0mGET /posts/destroy/643f86921cf7a6be01fca18e [32m200[0m 42.042 ms - 86[0m
+[0mGET /posts/destroy/643f862448224b789130aa22 [32m200[0m 30.894 ms - 86[0m
+[0mGET /posts/destroy/643f85c89f9a28c20fc055ec [32m200[0m 28.335 ms - 86[0m
+[0mGET /posts/destroy/643f85a9fd7bd3ac234c2d79 [32m200[0m 30.922 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 65.847 ms - 558[0m
+[0mGET / [32m200[0m 180.344 ms - 10333[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.798 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 18.028 ms - -[0m
+[0mGET /posts/destroy/643f87144c51ea47d3f68a2f [32m200[0m 39.851 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 173.279 ms - 270[0m
+[0mGET /posts/destroy/643f8a1a995f0735162f58bd [32m200[0m 86.800 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 89.437 ms - 542[0m
+[0mGET / [32m200[0m 89.663 ms - 10317[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.414 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 8.552 ms - -[0m
+[0mGET /posts/destroy/643f8a5ead6cab77d75018e1 [32m200[0m 26.480 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 26.901 ms - 545[0m
+[0mGET / [32m200[0m 746.296 ms - 10320[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.070 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 11.142 ms - -[0m
+[0mPOST /posts/create [32m200[0m 118.801 ms - 544[0m
+::1 - - [19/Apr/2023:06:51:39 +0000] "GET /css/style.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:39 +0000] "GET /css/_post.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:39 +0000] "GET /css/_comment.css HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:39 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:40 +0000] "GET /uploads/users/avatars/avatar-1680097109598-881043165 HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:40 +0000] "GET /uploads/users/avatars/avatar-1680097252885-341888605 HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:40 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:40 +0000] "GET /js/toggle_like.js HTTP/1.1" 404 156 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:40 +0000] "GET /images/default_avatar.png HTTP/1.1" 404 164 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:40 +0000] "GET /js/home_comment.js HTTP/1.1" 404 157 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:45 +0000] "GET / HTTP/1.1" 200 5472 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:50 +0000] "GET /users/sign-in HTTP/1.1" 200 2587 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:58 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:51:58 +0000] "GET / HTTP/1.1" 200 7404 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:06:55:29 +0000] "POST /posts/create HTTP/1.1" 200 557 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET / [32m200[0m 129.060 ms - 8450[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.624 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 8.735 ms - -[0m
+[0mGET /posts/destroy/643f8b6bc2028930691218e1 [32m200[0m 221.488 ms - 86[0m
+[0mGET /users/sign-in [32m200[0m 17.057 ms - 2565[0m
+[0mPOST /users/create-session [36m302[0m 29.507 ms - 46[0m
+[0mGET / [32m200[0m 53.280 ms - 10320[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 0.955 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.607 ms - -[0m
+[0mGET /posts/destroy/643f8a69ad6cab77d75018f4 [32m200[0m 28.612 ms - 86[0m
+[0mGET / [32m200[0m 67.754 ms - 8567[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.560 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.522 ms - -[0m
+[0mPOST /posts/create [32m200[0m 71.248 ms - 543[0m
+[0mGET / [32m200[0m 1837.946 ms - 10318[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 82.665 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 82.831 ms - -[0m
+[0mGET /posts/destroy/643f90e868dd9afe450fee3f [32m200[0m 272.465 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 525.949 ms - 548[0m
+[0mGET / [32m200[0m 127.594 ms - 10323[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 11.580 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.612 ms - -[0m
+[0mGET /posts/destroy/643f94873c16d1380fb28e0d [32m200[0m 36.884 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 74.289 ms - 559[0m
+[0mGET / [32m200[0m 351.532 ms - 10334[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.704 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 5.308 ms - -[0m
+[0mGET / [32m200[0m 697.918 ms - 7287[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.244 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.177 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 441.908 ms - 171[0m
+[0mGET /users/sign-in [36m304[0m 71.251 ms - -[0m
+[0mGET /users/auth/google [36m302[0m 8.548 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk57DoPre3va1xtpIjqjTRGskcmG-6PjjegBRqCE4ZU4z669Zxas40S4KE8l0eKkcw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none [36m302[0m 7578.810 ms - 46[0m
+[0mGET / [32m200[0m 206.611 ms - 10334[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.630 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 7.974 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 12.311 ms - 171[0m
+[0mGET / [36m304[0m 114.873 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 0.894 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.963 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 14.575 ms - 171[0m
+[0mGET / [36m304[0m 431.451 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 9.793 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 13.162 ms - -[0m
+[0mGET / [36m304[0m 178.192 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.519 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 2.224 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 58.049 ms - 171[0m
+[0mGET / [36m304[0m 157.035 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 12.405 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 12.792 ms - -[0m
+[0mGET /posts/destroy/643f94eb9322a7ba7e76cac6 [32m200[0m 61.053 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 103.686 ms - 299[0m
+[0mGET / [32m200[0m 231.962 ms - 10345[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 6.922 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 9.724 ms - -[0m
+[0mGET /posts/destroy/643f9d6ece41e9c5a48ab222 [32m200[0m 38.997 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 79.131 ms - 270[0m
+[0mGET / [32m200[0m 183.604 ms - 10316[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.358 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.632 ms - -[0m
+[0mGET /posts/destroy/643f9daf71537fbf3b9f75ec [32m200[0m 39.831 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 87.497 ms - 269[0m
+[0mGET / [32m200[0m 132.669 ms - 10315[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.534 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.337 ms - -[0m
+[0mGET /posts/destroy/643f9e0e3fb24b7ea1479373 [32m200[0m 41.946 ms - 86[0m
+[0mPOST /posts/create [32m200[0m 79.332 ms - 272[0m
+[0mGET /posts/destroy/643f9e4d3101ad0de5ffdc02 [32m200[0m 75.582 ms - 86[0m
+[0mGET / [32m200[0m 176.649 ms - 8403[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 8.246 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 4.045 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 14.253 ms - 171[0m
+[0mPOST /posts/create [32m200[0m 71.169 ms - 273[0m
+[0mGET / [32m200[0m 177.518 ms - 10319[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 7.552 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 8.526 ms - -[0m
+[0mGET / [36m304[0m 202.440 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 9.122 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.841 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 16.780 ms - 171[0m
+[0mGET /public/statics/rev-manifest.json%20404%20(Not%20Found)%20send%20@ [33m404[0m 14.344 ms - 204[0m
+[0mGET / [32m200[0m 1745.244 ms - 7272[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.785 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.398 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 395.789 ms - 171[0m
+[0mGET /favicon.ico [33m404[0m 4.433 ms - 150[0m
+[0mGET /users/sign-in [36m304[0m 56.031 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 77.337 ms - 46[0m
+[0mGET / [32m200[0m 269.665 ms - 10319[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 2.049 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 2.621 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 11.822 ms - 171[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 12.824 ms - 171[0m
+[0mGET / [36m304[0m 205.525 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 8.205 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 42.954 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 15.238 ms - 171[0m
+[0mGET / [36m304[0m 106.990 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 13.704 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 13.924 ms - -[0m
+[0mGET /public/statics/rev-manifest.json [33m404[0m 10.964 ms - 171[0m
+[0mGET / [32m200[0m 1565.228 ms - 7272[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 7.130 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 7.772 ms - -[0m
+[0mGET /favicon.ico [33m404[0m 7.337 ms - 150[0m
+[0mGET /users/sign-in [36m304[0m 14.329 ms - -[0m
+[0mGET /users/auth/google [36m302[0m 6.663 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk7rC5Zxhg_Mx0e9Q3ssw4VecbRHiSAAdMXc2seS7t07C_QZoxFfYd42j5xssYKKOA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 2301.994 ms - 46[0m
+[0mGET / [32m200[0m 55.740 ms - 10319[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.275 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.126 ms - -[0m
+[0mPOST /posts/create [32m200[0m 370.798 ms - 309[0m
+[0mGET / [32m200[0m 71.489 ms - 12071[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.697 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 3.713 ms - -[0m

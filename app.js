@@ -53,6 +53,7 @@ app.set('layout extractScripts' , true);
 //set up view engine and views
 app.set('view engine' , 'ejs');
 app.set('views' , './views');
+app.set('static path' , app.locals.staticPath);
 
 //MongoStore is used to store the session cookie in db
 app.use(session({
