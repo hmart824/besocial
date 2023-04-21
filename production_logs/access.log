@@ -1229,3 +1229,16 @@
 [0mGET / [32m200[0m 71.489 ms - 12071[0m
 [0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.697 ms - -[0m
 [0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 3.713 ms - -[0m
+::1 - - [19/Apr/2023:13:51:44 +0000] "GET / HTTP/1.1" 200 6656 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:51:49 +0000] "GET /users/sign-in HTTP/1.1" 200 2587 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:51:55 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:51:55 +0000] "GET / HTTP/1.1" 200 9327 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:51:59 +0000] "POST /posts/create HTTP/1.1" 200 312 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:05 +0000] "GET /posts/destroy/643ff1ffbffa6c00dc30a7d4 HTTP/1.1" 200 86 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:07 +0000] "GET /posts/destroy/643830ad17058cbf0151e8b2 HTTP/1.1" 200 86 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:10 +0000] "GET /users/profile/?id=6429974f4543c89e71739b66 HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:14 +0000] "GET /chat-room HTTP/1.1" 200 3148 "http://localhost:8000/users/profile/?id=6429974f4543c89e71739b66" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:22 +0000] "POST /chat-room/chat HTTP/1.1" 200 62 "http://localhost:8000/chat-room" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:29 +0000] "GET / HTTP/1.1" 200 6508 "http://localhost:8000/chat-room" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:31 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [19/Apr/2023:13:52:31 +0000] "GET / HTTP/1.1" 200 4950 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
