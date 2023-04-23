@@ -34,7 +34,7 @@ if(env.name == 'development'){
     }));
 }
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: false}));
 app.use(cookieparser());
 // app.use(express.static(env.static_path));
 app.use(express.static(path.join(__dirname , env.static_path)));
