@@ -23,7 +23,7 @@ const development = {
         secure: false,
         auth: {
             user: 'besocial824',
-            pass: 'fkcpiwghdpnrujip'
+            pass: "hrathkjhkupqpfyo"
         }
     },
     google_client_id: '328220384984-qikt0goofvm6fqed4d5g8leb2vkmscqa.apps.googleusercontent.com',

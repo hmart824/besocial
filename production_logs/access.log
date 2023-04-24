@@ -1242,3 +1242,63 @@
 ::1 - - [19/Apr/2023:13:52:29 +0000] "GET / HTTP/1.1" 200 6508 "http://localhost:8000/chat-room" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [19/Apr/2023:13:52:31 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [19/Apr/2023:13:52:31 +0000] "GET / HTTP/1.1" 200 4950 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:23:15 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:23:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:23:38 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:23:49 +0000] "POST /users/create-session HTTP/1.1" 302 72 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:23:49 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:00 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:00 +0000] "GET / HTTP/1.1" 200 6508 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:08 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:08 +0000] "GET / HTTP/1.1" 200 4950 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:10 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:16 +0000] "GET /users/reset-password HTTP/1.1" 200 2371 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:20 +0000] "POST /users/reset-password/get-email HTTP/1.1" 302 128 "http://localhost:8000/users/reset-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:25:20 +0000] "GET /users/reset-password HTTP/1.1" 304 - "http://localhost:8000/users/reset-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:39:19 +0000] "POST /users/reset-password/get-email HTTP/1.1" 302 128 "http://localhost:8000/users/reset-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:13:39:19 +0000] "GET /users/reset-password HTTP/1.1" 304 - "http://localhost:8000/users/reset-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:21 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:22 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:31 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:35 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:35 +0000] "GET / HTTP/1.1" 200 6508 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:42 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:43 +0000] "GET / HTTP/1.1" 200 4950 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:44 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:46 +0000] "GET /users/reset-password HTTP/1.1" 304 - "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:48 +0000] "POST /users/reset-password/get-email HTTP/1.1" 302 128 "http://localhost:8000/users/reset-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [24/Apr/2023:14:10:48 +0000] "GET /users/reset-password HTTP/1.1" 304 - "http://localhost:8000/users/reset-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET /users/reset-password [32m200[0m 176.706 ms - 2349[0m
+[0mGET / [32m200[0m 372.402 ms - 8449[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 5.545 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 8.401 ms - -[0m
+[0mGET /users/sign-in [32m200[0m 9.781 ms - 2565[0m
+[0mPOST /users/create-session [36m302[0m 34.776 ms - 46[0m
+[0mGET / [32m200[0m 97.342 ms - 12071[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 1.135 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.315 ms - -[0m
+[0mGET /posts/destroy/6438f723335f96d0c4fbe789 [32m200[0m 232.834 ms - 86[0m
+[0mGET /users/sign-out [36m302[0m 19.878 ms - 46[0m
+[0mGET / [32m200[0m 43.782 ms - 7237[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 0.958 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 11.329 ms - -[0m
+[0mGET /users/reset-password [36m304[0m 10.306 ms - -[0m
+[0mPOST /users/reset-password/get-email [36m302[0m 215.710 ms - 128[0m
+[0mGET /users/reset-password [36m304[0m 11.452 ms - -[0m
+[0mGET /users/reset-password/?accessToken=b6cad65dc411dd62f8accd5ae49e442cf04e16fa [32m200[0m 15.799 ms - 2524[0m
+[0mPOST /users/reset-password/update/b6cad65dc411dd62f8accd5ae49e442cf04e16fa [36m302[0m 26.037 ms - 72[0m
+[0mGET /users/sign-in [36m304[0m 11.273 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 11.707 ms - 46[0m
+[0mGET / [32m200[0m 45.920 ms - 10120[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 6.877 ms - -[0m
+[0mGET /users/sign-out [36m302[0m 26.488 ms - 46[0m
+[0mGET / [32m200[0m 42.138 ms - 7237[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.333 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 11.721 ms - -[0m
+[0mGET /users/reset-password [36m304[0m 8.608 ms - -[0m
+[0mPOST /users/reset-password/get-email [36m302[0m 92.057 ms - 128[0m
+[0mGET /users/reset-password [36m304[0m 9.711 ms - -[0m
+[0mPOST /users/reset-password/get-email [36m302[0m 71.830 ms - 128[0m
+[0mGET /users/reset-password [36m304[0m 35.802 ms - -[0m
+[0mPOST /users/reset-password/get-email [36m302[0m 20.795 ms - 128[0m
+[0mGET /users/reset-password [36m304[0m 17.293 ms - -[0m

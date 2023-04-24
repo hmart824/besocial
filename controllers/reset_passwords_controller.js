@@ -19,9 +19,6 @@ module.exports.getEmail = async(req , res)=>{
     try{
         let user = await User.findOne({email: req.body.email});
         let userToken = await Resetpassword.findOne({user: user.id});
-        let cuurTime = new Date().getTime();
-        let lastUpdatedTime = new Date(userToken.updatedAt).getTime();
-        let hourDiff = (cuurTime - lastUpdatedTime) / 3600000;
         console.log('________>>',userToken);
         if(user && !userToken){
             let token = await Resetpassword.create({
@@ -39,20 +36,25 @@ module.exports.getEmail = async(req , res)=>{
                     }
                 })
                 return res.redirect('back');            
-        }else if(hourDiff > 24){
-            await userToken.update({is_valid: true});
-            let token = await userToken.populate('user' , ['name','email']);
-            let job = queue.create('resetPasswordEmails' , token).save((err)=>{
-                if(err){
-                    console.log('error in sendng the job to queue in getemail' , err);
-                    return;
-                }else{
-                    console.log('job enqueued' , job.id);
-                }
-            })
-            setTimeout(async ()=>{
-                await userToken.update({is_valid: false});
-            }, 10*60*1000);
+        }else if(userToken){
+            let cuurTime = new Date().getTime();
+            let lastUpdatedTime = new Date(userToken.updatedAt).getTime();
+            let hourDiff = (cuurTime - lastUpdatedTime) / 3600000;
+            if(hourDiff > 24){
+                await userToken.update({is_valid: true});
+                let token = await userToken.populate('user' , ['name','email']);
+                let job = queue.create('resetPasswordEmails' , token).save((err)=>{
+                    if(err){
+                        console.log('error in sendng the job to queue in getemail' , err);
+                        return;
+                    }else{
+                        console.log('job enqueued' , job.id);
+                    }
+                })
+                setTimeout(async ()=>{
+                    await userToken.update({is_valid: false});
+                }, 10*60*1000);
+            }
                 return res.redirect('back');    
         }else{
             console.log('You cannot change the password!');
