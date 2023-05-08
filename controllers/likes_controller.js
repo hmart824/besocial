@@ -4,7 +4,7 @@ const Post = require('../models/post');
 
 module.exports.toggleLike = async (req , res)=>{
     try{
-
+        console.log("-------id>>>>",req.query.id)
         //likes/toggle/?id=asdfgh&type=Post
         let likeable;
         let deleted = false;

@@ -1,0 +1,1 @@
+class PostEngine{handleConnection(){this.socket=io.connect("http://localhost:5000"),this.socket.on("connect",(function(){console.log("post connection established using sockets...!")}))}handleData(o,t,s){console.log("binaya"),this.socket.emit("new_post",{postData:t,defaultAvtar:s,postroom:"besocial_post"}),this.socket.on("received_post",(function(o){console.log("new post ",o)}))}}

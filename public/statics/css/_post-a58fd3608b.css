@@ -44,9 +44,19 @@
           display: block; }
         .post-li .post .head .profile .profile-data span:last-child {
           font-size: .8rem; }
-    .post-li .post p {
-      margin: 0.3rem 0 0 0;
+    .post-li .post .content {
       min-height: 6.2rem; }
+      .post-li .post .content .post-img {
+        display: flex;
+        height: 29rem;
+        justify-content: center; }
+        .post-li .post .content .post-img img {
+          width: 80%;
+          margin: 1rem 0;
+          height: 93%;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; }
+      .post-li .post .content p {
+        margin: 0.3rem 0; }
     .post-li .post .foot {
       border-top: 2px solid black;
       padding: .3rem 0.2rem; }

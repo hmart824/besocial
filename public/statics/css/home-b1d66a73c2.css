@@ -14,6 +14,10 @@
       .container #feed-posts #new-post-form input {
         display: block;
         margin: auto; }
+    .container #feed-posts #upload {
+      display: block;
+      margin: auto;
+      margin-top: 1rem; }
     .container #feed-posts #post-list-container {
       text-align: center; }
       .container #feed-posts #post-list-container #post-ul {

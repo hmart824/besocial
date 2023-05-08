@@ -1,46 +1,88 @@
-{
-    //method to submit the form data using AJAX
-    const createPost = ()=>{
-        let newPostForm = $('#new-post-form');
-        newPostForm.submit((e)=>{
-            e.preventDefault();
-            $.ajax({
-                type:'post',
-                url: newPostForm.prop('action'),
-                data: newPostForm.serialize(),
-                success: (data)=>{
-                    let newPost = newPostDom(data.data.post , data.data.path);
-                    // console.log(data.data.path)
-                    $('#post-list-container>ul').prepend(newPost);
-                    new ToggleLike($(' .toggle-like-button' , newPost));
-                    new PostComments(data.data.post._id);
-                    destroyPost($(' .delete-post-button', newPost));
 
-                    //adding toggle comment button
-                    $(' .comment-btn' , newPost).click(()=>{
-                        console.log('clicked')
-                        console.log($(' .post-comment' , newPost));
-                        $(' .post-comments' , newPost).toggle();
-                    });
-                    new Noty({
-                        theme: 'relax',
-                        text: 'Post published',
-                        type: 'success',
-                        layout: 'topCenter',
-                        timeout: 1500
-                    }).show();
-                    $('#new-post-form textarea').val('') 
-                },
-                error: (error)=>{
-                    console.log(error.responseText);
-                }
-            });
+let socket = io.connect('http://localhost:5000');
+    //method to submit the form data using AJAX
+    const createPost = (userEmail)=>{
+
+        socket.on('connect', function(){
+            console.log('post connection established using sockets...!');
+        });
+        socket.emit('join_post_room' , {
+            user_email: userEmail,
+            postroom: 'besocial_post'
+        });
+
+
+        let newPostForm = $('#new-post-form');
+        console.log('active')
+        newPostForm.submit(function(e){
+            e.preventDefault();
+                $.ajax({
+                    type:'post',
+                    url: newPostForm.prop('action'),
+                    data: new FormData(this),
+                    cache : false,
+                    contentType: false,
+                    processData: false,
+                    success: (data)=>{
+                        let newPost = newPostDom(data.data.post , data.data.path , userEmail);
+                        // console.log(data.data.path)
+                        socket.emit('new_post' , {
+                            postData: data.data.post,
+                            defaultAvtar: data.data.path,
+                            postroom: 'besocial_post'
+                        });
+                
+                        
+                        $('#post-list-container>ul').prepend(newPost);
+                        new ToggleLike($(' .toggle-like-button' , newPost));
+                        new PostComments(data.data.post._id);
+                        destroyPost($(' .delete-post-button', newPost));
+    
+                        //adding toggle comment button
+                        $(' .comment-btn' , newPost).click(()=>{
+                            console.log('clicked')
+                            console.log($(' .post-comment' , newPost));
+                            $(' .post-comments' , newPost).toggle();
+                        });
+                        new Noty({
+                            theme: 'relax',
+                            text: 'Post published',
+                            type: 'success',
+                            layout: 'topCenter',
+                            timeout: 1500
+                        }).show();
+                        $('#new-post-form textarea').val('') 
+                    },
+                    error: (error)=>{
+                        console.log(error.responseText);
+                    }
+                });
+                $('#image').val('');
+            
            
         });
+        socket.on('received_post' , function(data){
+            console.log('new post received from home post' , data);
+             if(data.postData.user.email != userEmail){
+                let newPost = newPostDom(data.postData , data.defaultAvtar , userEmail);
+                $('#post-list-container>ul').prepend(newPost);
+                new ToggleLike($(' .toggle-like-button' , newPost));
+                new PostComments(data.postData._id);
+                 //adding toggle comment button
+                 $(' .comment-btn' , newPost).click(()=>{
+                    console.log('clicked')
+                    console.log($(' .post-comment' , newPost));
+                    $(' .post-comments' , newPost).toggle();
+                });
+            }
+        })
+        socket.on('removed_post' , function(data){
+            $(`#post-${data.postId}`).remove();
+        })
     }
 
     //metod to create a post in DOM
-    const newPostDom = (post , path)=>{
+    const newPostDom = (post , path , currentUserEmail)=>{
         let date = new Date(post.updatedAt);
         let opts = {
                 month: 'short',
@@ -64,11 +106,16 @@
                                     <span class='date'>${modifiedDate}</span>
                                 </div>
                             </div>
-                                <a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="bi bi-x-circle"></i></a>
+                                ${post.user.email === currentUserEmail ? 
+                                `<a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="bi bi-x-circle"></i></a>` : ''}
                         </div>
-                        <p>
-                            ${post.content}
-                        </p>
+                        <div class="content">
+                            ${post.image ? `<div class="post-img">
+                                                <img src="${post.image}" alt="${post.user.name}">
+                                             </div>
+                                            ` : ''}
+                            ${post.content ? `<p>${post.content}</p>` :''}
+                        </div>
                         <div class="foot">
                             <small>
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post" style="color: black ; text-decoration: none ;">
@@ -101,6 +148,10 @@
                 type:'get',
                 url: $(query).prop('href'),
                 success: (data)=>{
+                    socket.emit('remove_post' , {
+                        postId: data.data.post_id,
+                        postroom: 'besocial_post'
+                    });
                     $(`#post-${data.data.post_id}`).remove();
                     new Noty({
                         theme: 'relax',
@@ -136,5 +187,4 @@
 
 
     addingDeleteToPosts();
-    createPost();
-}
+    

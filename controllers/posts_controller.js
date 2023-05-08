@@ -3,6 +3,7 @@ const Comment = require('../models/comment');
 const Like = require('../models/like');
 const User = require('../models/user');
 
+
 module.exports.posts = (req , res)=>{
     return res.render('post' , {
         title: 'user_post'
@@ -11,26 +12,37 @@ module.exports.posts = (req , res)=>{
 module.exports.create = async (req , res)=>{
   try{
     let user = await User.findById(req.user._id);
-     let post = await Post.create({
-        content: req.body.content,
-        user: user.id
-    });
-    user.posts.push(post);
-    user.save();
-    if(req.xhr){
-      post = await post.populate('user' , ['name' , 'avatar']);
-      console.log(post)
-      return res.status(200).json({
-        data: {
-          post: post,
-          path: req.app.locals.staticPath('images/default_avatar.png')
-        },
-        message:'post created'
+    let post;
+      Post.uploadedImage (req , res , async(err)=>{
+        console.log("-----XXX--->",req.body.content)
+        post = new Post({
+                    user: user.id
+                });
+        if(req.body.content){
+          post.content = req.body.content;
+        }
+        if(req.file){
+          post.image = Post.imagePath + '/' + req.file.filename;
+        }
+        await post.save();
+            user.posts.push(post);
+            user.save();
+        if(req.xhr){
+          post = await post.populate('user' , ['name' , 'avatar' , 'email']);
+          return res.status(200).json({
+            data: {
+              post: post,
+              path: req.app.locals.staticPath('images/default_avatar.png')
+            },
+            message:'post created'
+          })
+        }
+        req.flash('success','Post Published!');
+      
+      return res.redirect('back');
       })
-    }
-    req.flash('success','Post Published!');
-    
-    return res.redirect('back'); 
+      
+       
   }catch(err){
     console.log(err);
     return;

@@ -16,10 +16,17 @@
                 <a class="delete-post-button" href="/posts/destroy/<%=post._id%>"><i class="bi bi-x-circle" style="color: black"></i></a>
             <%}%>
             </div>
-        <p>
-            <%= post.content %>
-
-        </p>
+            <div class="content">
+                <%if(post.image){%>
+                    <div class="post-img">
+                        <img src="<%=post.image%>" alt="<%=post.user.name%>">
+                    </div>
+                <%}%>
+                <%if(post.content){%>
+                    <p><%= post.content %></p>
+                <%}%>
+            </div>
+              
         <div class="foot">
             <small>
                 <% if (locals.user){ %>

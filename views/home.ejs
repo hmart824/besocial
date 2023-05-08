@@ -5,10 +5,13 @@
     <section id="feed-posts">
         <h1>BeSocial/<%=title %></h1>
         <%if(locals.user){%>
-        <form action="/posts/create" id="new-post-form" method="post">
-            <textarea name="content" cols="30" rows="4" placeholder="Type here ...." required></textarea>
-            <input type="submit" value="Post">
-        </form>
+        <div id="form-controll">
+            <form action="/posts/create" id="new-post-form" method="post" enctype="multipart/form-data">
+                <textarea name="content" cols="30" rows="4" placeholder="Type here ...." id="input" ></textarea>
+                <input type="file" name="image" title="Upload a Profile Picture" id="image">
+                <input type="submit" value="Post">
+            </form>
+        </div>
         <%}%>
 
         <div id="post-list-container">
@@ -40,8 +43,9 @@
         <i class="bi bi-three-dots-vertical"></i>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
 <script src="<%= staticPath('js/home_comment.js')%>"></script>
-<script type="module" src="<%= staticPath('js/home_post.js')%>"></script>
+<script src="<%= staticPath('js/home_post.js')%>"></script>
 <script src="<%= staticPath('js/toggle_like.js')%>"></script>
 <script>
     $('.toggle-like-button').each(function(){
@@ -49,36 +53,10 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
-<script>
-    let postDate = $('.date');
-    postDate.each(function(){
-        let date = new Date(this.innerText);
-        let opts = {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric'
-        }
-        let modifiedDate = date.toLocaleString('default' , opts);
-        this.innerHTML = modifiedDate;
-    })
-    let commentDate = $('.comment-date');
-    commentDate.each(function(){
-        let date = new Date(this.innerText);
-        let opts = {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric'
-        }
-        let modifiedDate = date.toLocaleString('default' , opts);
-        this.innerHTML = modifiedDate;
-    })
-    $('.menu-bar').click(()=>{
-        $('#user-friends').toggle();
-    })
-    
-</script>
+<%if(locals.user){%>
+    <script>
+        createPost('<%= locals.user.email %>');
+    </script>
+<%}%>
+<script src="<%= staticPath('js/script.js')%>"></script>
 

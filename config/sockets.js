@@ -1,5 +1,5 @@
 
-module.exports.chatSockets = function(socketServer){
+module.exports.mainSocket = function(socketServer){
     let io = require('socket.io')(socketServer , {
         cors: {
             origin: '*'
@@ -13,6 +13,7 @@ module.exports.chatSockets = function(socketServer){
             console.log('socket disconnected!');
         });
 
+        //chat room connections
         socket.on('join_room' , function(data){
             console.log('joining request received' , data)
 
@@ -24,6 +25,19 @@ module.exports.chatSockets = function(socketServer){
             io.in(data.chatroom).emit('receive_message' , data);
         })
 
+
+        //post connections
+        socket.on('join_post_room' , function(data){
+            console.log('joining request received for post' , data)
+
+            socket.join(data.postroom);
+        });
+        socket.on('new_post' , function(data){
+            io.in(data.postroom).emit('received_post' , data);
+        });
+        socket.on('remove_post' , function(data){
+            io.in(data.postroom).emit('removed_post' , data);
+        });
 
     });
 
