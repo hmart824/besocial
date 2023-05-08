@@ -2722,3 +2722,21 @@
 ::1 - - [08/May/2023:14:20:42 +0000] "POST /likes/toggle/?id=645905269ab560bc19610249&type=Comment HTTP/1.1" 200 59 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [08/May/2023:14:20:43 +0000] "POST /likes/toggle/?id=645905269ab560bc19610249&type=Comment HTTP/1.1" 200 58 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [08/May/2023:14:20:45 +0000] "GET / HTTP/1.1" 200 6924 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:16 +0000] "GET /comments/destroy/645905269ab560bc19610249 HTTP/1.1" 200 75 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:18 +0000] "GET / HTTP/1.1" 200 6036 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:22 +0000] "GET / HTTP/1.1" 200 6207 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:26 +0000] "POST /comments/create HTTP/1.1" 200 332 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:28 +0000] "POST /likes/toggle/?id=64590566b01765b0c8e430fd&type=Comment HTTP/1.1" 200 59 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:29 +0000] "GET / HTTP/1.1" 200 7095 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:31 +0000] "POST /likes/toggle/?id=64590566b01765b0c8e430fd&type=Comment HTTP/1.1" 200 59 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [08/May/2023:14:21:34 +0000] "GET / HTTP/1.1" 200 6924 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET / [32m200[0m 311.304 ms - 9303[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 14.978 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 0.994 ms - -[0m
+[0mGET /uploads/users/posts/image-1683468302090-80577057 [36m304[0m 8.514 ms - -[0m
+[0mGET /users/sign-in [32m200[0m 16.435 ms - 2565[0m
+[0mPOST /users/create-session [36m302[0m 53.644 ms - 46[0m
+[0mGET / [32m200[0m 101.771 ms - 13931[0m
+[0mGET /uploads/users/avatars/avatar-1680097252885-341888605 [36m304[0m 0.831 ms - -[0m
+[0mGET /uploads/users/posts/image-1683468302090-80577057 [36m304[0m 4.210 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1680097109598-881043165 [36m304[0m 1.183 ms - -[0m
