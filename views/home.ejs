@@ -47,6 +47,7 @@
 <script src="<%= staticPath('js/home_comment.js')%>"></script>
 <script src="<%= staticPath('js/home_post.js')%>"></script>
 <script src="<%= staticPath('js/toggle_like.js')%>"></script>
+<script src="<%= staticPath('js/script.js')%>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;
@@ -58,5 +59,4 @@
         createPost('<%= locals.user.email %>');
     </script>
 <%}%>
-<script src="<%= staticPath('js/script.js')%>"></script>
 

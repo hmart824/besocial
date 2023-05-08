@@ -7,10 +7,9 @@
   "css/profile.css": "css/profile-82e7df62ee.css",
   "css/style.css": "css/style-95172e3a2b.css",
   "images/default_avatar.png": "images/default_avatar-e0da724278.png",
-  "js/chat_engine.js": "js/chat_engine-419d90c18c.js",
+  "js/chat_engine.js": "js/chat_engine-9addad957c.js",
   "js/home_comment.js": "js/home_comment-0d72d07581.js",
-  "js/home_post.js": "js/home_post-d895f634e0.js",
-  "js/post_engine.js": "js/post_engine-adf3a76148.js",
+  "js/home_post.js": "js/home_post-ed4bcc39d7.js",
   "js/script.js": "js/script-d796c40981.js",
   "js/toggle_friendship.js": "js/toggle_friendship-1b7e9779f4.js",
   "js/toggle_like.js": "js/toggle_like-3d7c416d18.js"
