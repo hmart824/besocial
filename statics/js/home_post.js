@@ -1,6 +1,6 @@
 
-// let socket = io.connect('http://localhost:5000');
-let socket = io.connect('http://3.6.92.159:5000');
+let socket = io.connect('http://localhost:5000');
+// let socket = io.connect('http://3.6.92.159:5000');
     //method to submit the form data using AJAX
     const createPost = (userEmail)=>{
 

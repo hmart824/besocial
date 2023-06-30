@@ -59,6 +59,7 @@
                 img{
                     width: 80%;
                     margin: 1rem 0;
+                    object-fit: cover;
                     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
                 }
             }
@@ -71,9 +72,10 @@
             padding: .3rem 0.2rem;
             small{
                 font-size: 1rem;
-                text-decoration: none;
-                color: black;
                 cursor: pointer;
+                a{
+                    text-decoration: none;
+                }
             }
         }
     }

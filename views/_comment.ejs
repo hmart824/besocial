@@ -1,4 +1,4 @@
-
+<%let commentliked = false;%>
 <li id="comment-<%= comment._id%>" class="comment-li">
     <div class="comment">
         <%if(locals.user && (locals.user.id === comment.user.id || locals.user.id === post.user.id)){%>
@@ -13,9 +13,20 @@
                 <%= comment.user.name%>
             </small>
             <% if (locals.user){ %>
-                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="color: black ; text-decoration: none ;"">
-                            <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
+                <%for( let commentlike of comment.likes ){ %>
+                    <%if(locals.user.id == commentlike.user){%>
+                        <% commentliked = true;break; %>
+                    <% }%>
+               <% }%>
+                <%if(commentliked){%>
+                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="color: blue ; text-decoration: none ;"">
+                        <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
                     </a>
+                <%}else{%>
+                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="color: black ; text-decoration: none ;"">
+                        <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
+                    </a>
+                <%}%>
             <% }else{ %>
                 <%= comment.likes.length %> <i class="bi bi-hand-thumbs-up-fill"></i>
             <% } %>
