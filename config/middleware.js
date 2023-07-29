@@ -5,3 +5,7 @@ module.exports.setFlash = (req , res , next)=>{
     }
     next();
 }
+
+module.exports.sassMiddleware = (req , res , next)=>{
+    
+}

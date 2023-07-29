@@ -17,6 +17,16 @@ let socket = io.connect('http://localhost:5000');
         console.log('active')
         newPostForm.submit(function(e){
             e.preventDefault();
+            if($('#input').val().trim() === '' && $('#image').val() === ''){
+                new Noty({
+                    theme: 'relax',
+                    text: 'Invalid Inputs',
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 1500
+                }).show();
+                return;
+            }
                 $.ajax({
                     type:'post',
                     url: newPostForm.prop('action'),

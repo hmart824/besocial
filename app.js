@@ -1,4 +1,6 @@
 const express = require('express');
+const IP = `${"http://localhost"}:5000`;
+console.log(IP);
 const env = require('./config/environment');
 const logger = require('morgan');
 const port = 8000;
@@ -93,3 +95,5 @@ app.listen(port , (err)=>{
     }
     console.log(`Server is running on port : ${port}`);
 })
+
+module.exports = IP;
