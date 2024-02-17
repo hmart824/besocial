@@ -4,6 +4,9 @@
 /server/config/passport-google-oauth2-strategy
 /server/config/nodemailer
 /server.env
+/server/public
+/server/uploads
+/server/production_logs
 
 # client side
 
