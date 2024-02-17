@@ -1,4 +1,11 @@
-/node_modules
-/config/passport-google-oauth2-strategy
-/config/nodemailer
-binaya
+# server side
+
+/server/node_modules
+/server/config/passport-google-oauth2-strategy
+/server/config/nodemailer
+/server.env
+
+# client side
+
+/client/node_modules
+/client.env

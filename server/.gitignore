@@ -1,0 +1,4 @@
+/node_modules
+/config/passport-google-oauth2-strategy
+/config/nodemailer
+.env

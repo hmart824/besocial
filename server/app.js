@@ -69,7 +69,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl: 'mongodb://localhost/besocial_development',
+            mongoUrl: 'mongodb+srv://binayakumar824:JHHPmHP7bsvt594G@cluster0.dpegr6a.mongodb.net/besocial_development',
             MongooseConnection: db,
             autoRemove: 'disabled'
         },(err)=>{

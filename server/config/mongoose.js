@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const env = require('./environment');
 
 mongoose.set('strictQuery', true);
-mongoose.connect(`mongodb://127.0.0.1/${env.db}`);
+mongoose.connect(`mongodb+srv://binayakumar824:JHHPmHP7bsvt594G@cluster0.dpegr6a.mongodb.net/${env.db}`);
 
 const db = mongoose.connection;
 
